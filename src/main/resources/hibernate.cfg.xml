@@ -19,13 +19,13 @@
         <property name="show_sql">true</property>
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">create</property>
-        <mapping class="entities.carService"/>
-        <mapping class="entities.Car"/>
-        <mapping class="entities.Failure"/>
-        <mapping class="entities.Work"/>
-        <mapping class="entities.Customer"/>
-        <mapping class="entities.Detail"/>
-        <mapping class="entities.Registration"/>
-        <mapping class="entities.Schedule"/>
+        <mapping class="carfix.entities.CarService"/>
+        <mapping class="carfix.entities.Car"/>
+        <mapping class="carfix.entities.Failure"/>
+        <mapping class="carfix.entities.Work"/>
+        <mapping class="carfix.entities.Customer"/>
+        <mapping class="carfix.entities.Detail"/>
+        <mapping class="carfix.entities.Registration"/>
+        <mapping class="carfix.entities.Schedule"/>
     </session-factory>
 </hibernate-configuration>

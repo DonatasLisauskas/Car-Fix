@@ -45,7 +45,12 @@
 
 <Loggers>
 
-    <Logger name="donatas-gang-of-sda" level="info" additivity="false" >
+    <Logger name="carfix.dao" level="info" additivity="false" >
+        <AppenderRef ref="RollingFile" />
+    </Logger>
+
+    <!-- Use different logging limits for different packages -->
+    <Logger name="carfix.utils" level="debug" additivity="false" >
         <AppenderRef ref="RollingFile" />
     </Logger>
 

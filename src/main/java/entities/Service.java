@@ -13,6 +13,8 @@ public class Service {
     @Column(name = "serviceName")
     private String serviceName;
 
+    @Column(name = "repairID")
+    private long repairID;
 
 
 

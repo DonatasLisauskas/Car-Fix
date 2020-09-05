@@ -1,7 +1,7 @@
-package Dao;
+package carfix.dao;
 
-import Utils.HibernateUtil;
-import entities.Car;
+import carfix.utils.HibernateUtil;
+import carfix.entities.CarService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
@@ -10,12 +10,11 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 
+public class CarServiceDao {
 
-public class CarDao {
+    private static final Logger LOGGER = LogManager.getLogger(CarServiceDao.class);
 
-    private static final Logger LOGGER = LogManager.getLogger(CarDao.class);
-
-    public void createCar(Car car) {
+    public void createCarService(CarService carservice) {
 
         Transaction transaction = null;
 
@@ -23,7 +22,7 @@ public class CarDao {
 
             transaction = session.beginTransaction();
 
-            session.save(car);
+            session.save(carservice);
 
             transaction.commit();
 
@@ -35,11 +34,11 @@ public class CarDao {
             ex.printStackTrace();
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mCreateCar(" + car + "): Process of creating is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mcreateCarService(" + carservice + "): Process of creating is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public void updateCar(Car car) {
+    public void updateCarService(CarService carService) {
 
         Transaction transaction = null;
 
@@ -47,7 +46,7 @@ public class CarDao {
 
             transaction = session.beginTransaction();
 
-            session.update(car);
+            session.update(carService);
 
             transaction.commit();
 
@@ -59,11 +58,11 @@ public class CarDao {
             ex.printStackTrace();
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mupdateCar(" + car + "): Process of updating is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mupdateCarService(" + carService + "): Process of updating is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public void deleteCar(Car car) {
+    public void deleteCarService(CarService carService) {
 
         Transaction transaction = null;
 
@@ -71,7 +70,7 @@ public class CarDao {
 
             transaction = session.beginTransaction();
 
-            session.delete(car);
+            session.delete(carService);
 
             transaction.commit();
 
@@ -83,63 +82,65 @@ public class CarDao {
             ex.printStackTrace();
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mdeleteCar(" + car + "): Process of deleting is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mdeleteCarService(" + carService + "): Process of deleting is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public Car getCarById(final Long carId) {
+    public CarService getCarServiceById(final Long carServiceId) {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
-            Car car = session.find(Car.class, carId);
+            CarService carService = session.find(CarService.class, carServiceId);
 
-            return car;
+            return carService;
 
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
             return null;
         } finally {
-            LOGGER.info("\u001B[33mgetCarById(" + carId + "): Process of searching is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mgetCarServiceById(" + carServiceId + "): Process of searching is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public List<Car> getListOfCarByQueries(final String queryStatement) {
+    public List<CarService> getListOfCarServiceByQueries(final String queryStatement) {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
-            List<Car> carList = session.createQuery(queryStatement, Car.class).list();
+            List<CarService> carServicesList = session.createQuery(queryStatement, CarService.class).list();
 
-            return carList;
+            return carServicesList;
 
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
             return null;
         } finally {
-            LOGGER.info("\u001B[33mgetListOfCarByQueries(" + queryStatement + "): Process of searching and mapping into the list is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mgetListOfCarServiceByQueries(" + queryStatement + "): Process of searching \n" +
+                    "and mapping into the list is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public List<Car> getListOfCarByNamedQueries(final String namedQueries, final String query) {
+    public List<CarService> getListOfCarServiceByNamedQueries(final String namedQueries, final String query) {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
-            Query<Car> carQuery = session.createNamedQuery(namedQueries, Car.class);
+            Query<CarService> carServiceQuery = session.createNamedQuery(namedQueries, CarService.class);
 
-            carQuery = carQuery.setParameter("parameter", query);
+            carServiceQuery = carServiceQuery.setParameter("parameter", query);
 
-            List<Car> carList = carQuery.list();
+            List<CarService> carServicerList = carServiceQuery.list();
 
-            return carList;
+            return carServicerList;
 
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
             return null;
         } finally {
-            LOGGER.info("\u001B[33mgetListOfCarByNamedQueries(" + namedQueries + ", " + query + "): Process of searching\n" +
+            LOGGER.info("\u001B[getListOfCarServiceByNamedQueries(" + namedQueries + ", " + query + "): Process of searching\n" +
                     " by Named Queries and mapping into the list is completed. Session is closed.\u001B[0m");
         }
     }
 }
+

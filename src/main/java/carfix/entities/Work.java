@@ -1,4 +1,4 @@
-package entities;
+package carfix.entities;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,7 +17,7 @@ public class Work {
 
     @ManyToOne
     @JoinColumn(name = "carServiceId")
-    private carService carservice;
+    private CarService carservice;
 
     @ManyToOne
     @JoinColumn(name = "carId")

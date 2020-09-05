@@ -1,12 +1,11 @@
-package entities;
+package carfix.entities;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(schema = "carfixdatabase", name = "carServices")
-public class carService {
+public class CarService {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,17 +27,17 @@ public class carService {
     @OneToMany(mappedBy = "carservice")
     private List<Work> works;
 
-    public carService() {
+    public CarService() {
     }
 
-    public carService(String name, String address, String workTime, Long employeesNum) {
+    public CarService(String name, String address, String workTime, Long employeesNum) {
         this.name = name;
         this.address = address;
         this.workTime = workTime;
         this.employeesNum = employeesNum;
     }
 
-    public carService(String name, String address, String workTime, Long employeesNum, List<Work> works) {
+    public CarService(String name, String address, String workTime, Long employeesNum, List<Work> works) {
         this.name = name;
         this.address = address;
         this.workTime = workTime;

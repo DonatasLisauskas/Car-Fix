@@ -1,4 +1,4 @@
-package Utils;
+package carfix.utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,7 +22,7 @@ public class HibernateUtil {
                 e.printStackTrace();
                 LOGGER.error(e);
             } finally {
-                LOGGER.info("\u001B[33mSession Factory Builded\u001B[0m");
+                LOGGER.info("\u001B[33mSession Factory Built\u001B[0m");
             }
         }
         return sessionFactory;

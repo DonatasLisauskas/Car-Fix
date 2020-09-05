@@ -57,7 +57,7 @@ public class CarDao {
             ex.printStackTrace();
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mupdateCar(" + car + ") Process of updating is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mupdateCar(" + car + "): Process of updating is completed. Session is closed.\u001B[0m");
         }
     }
 

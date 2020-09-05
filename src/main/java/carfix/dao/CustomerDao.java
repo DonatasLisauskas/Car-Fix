@@ -1,7 +1,7 @@
-package Dao;
+package carfix.dao;
 
-import Utils.HibernateUtil;
-import entities.Customer;
+import carfix.utils.HibernateUtil;
+import carfix.entities.Customer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;

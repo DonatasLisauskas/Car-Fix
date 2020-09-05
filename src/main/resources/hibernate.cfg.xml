@@ -23,5 +23,9 @@
         <mapping class="entities.Car"/>
         <mapping class="entities.Failure"/>
         <mapping class="entities.Work"/>
+        <mapping class="entities.Customer"/>
+        <mapping class="entities.Detail"/>
+        <mapping class="entities.Registration"/>
+        <mapping class="entities.Schedule"/>
     </session-factory>
 </hibernate-configuration>

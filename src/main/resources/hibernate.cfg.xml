@@ -13,12 +13,15 @@
             jdbc:mysql://localhost:3306/carfixdatabase?serverTimezone=UTC
         </property>
         <property name="connection.username">root</property>
-        <property name="connection.password">1My_sql!SQL</property>
+        <property name="connection.password">Cinkcilatas5521</property>
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">create</property>
-        <mapping class="entities.Service"/>
+        <mapping class="entities.carService"/>
+        <mapping class="entities.Car"/>
+        <mapping class="entities.Failure"/>
+        <mapping class="entities.Work"/>
     </session-factory>
 </hibernate-configuration>

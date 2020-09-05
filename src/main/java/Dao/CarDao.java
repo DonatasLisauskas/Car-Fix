@@ -30,6 +30,7 @@ public class CarDao {
         } catch (Exception ex) {
             if (null != transaction) {
                 transaction.rollback();
+                LOGGER.info("\u001B[33mrollback() executed\u001B[0m");
             }
             ex.printStackTrace();
             LOGGER.error(ex);
@@ -53,6 +54,7 @@ public class CarDao {
         } catch (Exception ex) {
             if (null != transaction) {
                 transaction.rollback();
+                LOGGER.info("\u001B[33mrollback() executed\u001B[0m");
             }
             ex.printStackTrace();
             LOGGER.error(ex);
@@ -76,6 +78,7 @@ public class CarDao {
         } catch (Exception ex) {
             if (null != transaction) {
                 transaction.rollback();
+                LOGGER.info("\u001B[33mrollback() executed\u001B[0m");
             }
             ex.printStackTrace();
             LOGGER.error(ex);

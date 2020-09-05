@@ -28,6 +28,69 @@ public class carService {
     @OneToMany(mappedBy = "carservice")
     private List<Work> works;
 
+    public carService() {
+    }
 
+    public carService(String name, String address, String workTime, Long employeesNum) {
+        this.name = name;
+        this.address = address;
+        this.workTime = workTime;
+        this.employeesNum = employeesNum;
+    }
 
+    public carService(String name, String address, String workTime, Long employeesNum, List<Work> works) {
+        this.name = name;
+        this.address = address;
+        this.workTime = workTime;
+        this.employeesNum = employeesNum;
+        this.works = works;
+    }
+
+    public Long getServiceId() {
+        return serviceId;
+    }
+
+    public void setServiceId(Long serviceId) {
+        this.serviceId = serviceId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getWorkTime() {
+        return workTime;
+    }
+
+    public void setWorkTime(String workTime) {
+        this.workTime = workTime;
+    }
+
+    public Long getEmployeesNum() {
+        return employeesNum;
+    }
+
+    public void setEmployeesNum(Long employeesNum) {
+        this.employeesNum = employeesNum;
+    }
+
+    public List<Work> getWorks() {
+        return works;
+    }
+
+    public void setWorks(List<Work> works) {
+        this.works = works;
+    }
 }

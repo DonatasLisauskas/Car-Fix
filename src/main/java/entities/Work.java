@@ -1,6 +1,7 @@
 package entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(schema = "carfixdatabase", name = "works")
@@ -25,4 +26,7 @@ public class Work {
     @ManyToOne
     @JoinColumn(name = "failureId")
     private Failure failure;
+
+    @OneToMany(mappedBy = "work")
+    private List<Registration> registrations;
 }

@@ -26,4 +26,7 @@ public class Car {
 
     @OneToMany(mappedBy = "car")
     private List<Work> works;
+
+    @OneToMany(mappedBy = "car")
+    private List<Detail> details;
 }

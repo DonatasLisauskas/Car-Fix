@@ -1,7 +1,7 @@
 package carfix.dao;
 
+import carfix.entities.Schedule;
 import carfix.utils.HibernateUtil;
-import carfix.entities.CarService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
@@ -10,11 +10,11 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 
-public class CarServiceDao {
+public class ScheduleDao {
 
-    private static final Logger LOGGER = LogManager.getLogger(CarServiceDao.class);
+    private static final Logger LOGGER = LogManager.getLogger(ScheduleDao.class);
 
-    public void createCarService(CarService carService) {
+    public void createSchedule(Schedule schedule) {
 
         Transaction transaction = null;
 
@@ -22,7 +22,7 @@ public class CarServiceDao {
 
             transaction = session.beginTransaction();
 
-            session.save(carService);
+            session.save(schedule);
 
             transaction.commit();
 
@@ -34,11 +34,11 @@ public class CarServiceDao {
             ex.printStackTrace();
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mcreateCarService(" + carService + "): Process of creating is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mCreateSchedule(" + schedule + "): Process of creating is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public void updateCarService(CarService carService) {
+    public void updateSchedule(Schedule schedule) {
 
         Transaction transaction = null;
 
@@ -46,7 +46,7 @@ public class CarServiceDao {
 
             transaction = session.beginTransaction();
 
-            session.update(carService);
+            session.update(schedule);
 
             transaction.commit();
 
@@ -58,11 +58,11 @@ public class CarServiceDao {
             ex.printStackTrace();
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mupdateCarService(" + carService + "): Process of updating is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mupdateSchedule(" + schedule + "): Process of updating is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public void deleteCarService(CarService carService) {
+    public void deleteSchedule(Schedule schedule) {
 
         Transaction transaction = null;
 
@@ -70,7 +70,7 @@ public class CarServiceDao {
 
             transaction = session.beginTransaction();
 
-            session.delete(carService);
+            session.delete(schedule);
 
             transaction.commit();
 
@@ -82,65 +82,64 @@ public class CarServiceDao {
             ex.printStackTrace();
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mdeleteCarService(" + carService + "): Process of deleting is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mdeleteSchedule(" + schedule + "): Process of deleting is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public CarService getCarServiceById(final Long carServiceId) {
+    public Schedule getScheduleById(final Long scheduleId) {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
-            CarService carService = session.find(CarService.class, carServiceId);
+            Schedule schedule = session.find(Schedule.class, scheduleId);
 
-            return carService;
+            return schedule;
 
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
             return null;
         } finally {
-            LOGGER.info("\u001B[33mgetCarServiceById(" + carServiceId + "): Process of searching is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mgetScheduleById(" + scheduleId + "): Process of searching is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public List<CarService> getListOfCarServiceByQueries(final String queryStatement) {
+    public List<Schedule> getListOfScheduleByQueries(final String queryStatement) {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
-            List<CarService> carServicesList = session.createQuery(queryStatement, CarService.class).list();
+            List<Schedule> scheduleList = session.createQuery(queryStatement, Schedule.class).list();
 
-            return carServicesList;
+            return scheduleList;
 
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
             return null;
         } finally {
-            LOGGER.info("\u001B[33mgetListOfCarServiceByQueries(" + queryStatement + "): Process of searching \n" +
+            LOGGER.info("\u001B[33mgetListOfScheduleByQueries(" + queryStatement + "): Process of searching " +
                     "and mapping into the list is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public List<CarService> getListOfCarServiceByNamedQueries(final String namedQueries, final String query) {
+    public List<Schedule> getListOfScheduleByNamedQueries(final String namedQueries, final String query) {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
-            Query<CarService> carServiceQuery = session.createNamedQuery(namedQueries, CarService.class);
+            Query<Schedule> scheduleQuery = session.createNamedQuery(namedQueries, Schedule.class);
 
-            carServiceQuery = carServiceQuery.setParameter("parameter", query);
+            scheduleQuery = scheduleQuery.setParameter("parameter", query);
 
-            List<CarService> carServicerList = carServiceQuery.list();
+            List<Schedule> scheduleList = scheduleQuery.list();
 
-            return carServicerList;
+            return scheduleList;
 
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
             return null;
         } finally {
-            LOGGER.info("\u001B[getListOfCarServiceByNamedQueries(" + namedQueries + ", " + query + "): Process of searching\n" +
+            LOGGER.info("\u001B[33mgetListOfScheduleByNamedQueries(" + namedQueries + ", " + query + "): Process of searching\n" +
                     " by Named Queries and mapping into the list is completed. Session is closed.\u001B[0m");
         }
     }
 }
-

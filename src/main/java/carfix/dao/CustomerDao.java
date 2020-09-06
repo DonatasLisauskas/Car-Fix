@@ -1,7 +1,7 @@
-package Dao;
+package carfix.dao;
 
-import Utils.HibernateUtil;
-import entities.Customer;
+import carfix.entities.Customer;
+import carfix.utils.HibernateUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
@@ -116,7 +116,8 @@ public class CustomerDao {
             LOGGER.error(ex);
             return null;
         } finally {
-            LOGGER.info("\u001B[33mgetListOfCustomerByQueries(" + queryStatement + "): Process of searching and mapping into the list is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mgetListOfCustomerByQueries(" + queryStatement + "): Process of searching " +
+                    "and mapping into the list is completed. Session is closed.\u001B[0m");
         }
     }
 

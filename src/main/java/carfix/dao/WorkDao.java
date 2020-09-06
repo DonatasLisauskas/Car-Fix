@@ -1,7 +1,7 @@
 package carfix.dao;
 
+import carfix.entities.Work;
 import carfix.utils.HibernateUtil;
-import carfix.entities.CarService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
@@ -10,11 +10,11 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 
-public class CarServiceDao {
+public class WorkDao {
 
-    private static final Logger LOGGER = LogManager.getLogger(CarServiceDao.class);
+    private static final Logger LOGGER = LogManager.getLogger(WorkDao.class);
 
-    public void createCarService(CarService carService) {
+    public void createWork(Work work) {
 
         Transaction transaction = null;
 
@@ -22,7 +22,7 @@ public class CarServiceDao {
 
             transaction = session.beginTransaction();
 
-            session.save(carService);
+            session.save(work);
 
             transaction.commit();
 
@@ -34,11 +34,11 @@ public class CarServiceDao {
             ex.printStackTrace();
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mcreateCarService(" + carService + "): Process of creating is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mcreateWork(" + work + "): Process of creating is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public void updateCarService(CarService carService) {
+    public void updateWork(Work work) {
 
         Transaction transaction = null;
 
@@ -46,7 +46,7 @@ public class CarServiceDao {
 
             transaction = session.beginTransaction();
 
-            session.update(carService);
+            session.update(work);
 
             transaction.commit();
 
@@ -58,11 +58,11 @@ public class CarServiceDao {
             ex.printStackTrace();
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mupdateCarService(" + carService + "): Process of updating is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mupdateWork(" + work + "): Process of updating is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public void deleteCarService(CarService carService) {
+    public void deleteWork(Work work) {
 
         Transaction transaction = null;
 
@@ -70,7 +70,7 @@ public class CarServiceDao {
 
             transaction = session.beginTransaction();
 
-            session.delete(carService);
+            session.delete(work);
 
             transaction.commit();
 
@@ -82,65 +82,64 @@ public class CarServiceDao {
             ex.printStackTrace();
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mdeleteCarService(" + carService + "): Process of deleting is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mdeleteWork(" + work + "): Process of deleting is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public CarService getCarServiceById(final Long carServiceId) {
+    public Work getWorkById(final Long workId) {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
-            CarService carService = session.find(CarService.class, carServiceId);
+            Work work = session.find(Work.class, workId);
 
-            return carService;
+            return work;
 
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
             return null;
         } finally {
-            LOGGER.info("\u001B[33mgetCarServiceById(" + carServiceId + "): Process of searching is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mgetWorkById(" + workId + "): Process of searching is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public List<CarService> getListOfCarServiceByQueries(final String queryStatement) {
+    public List<Work> getListOfWorkByQueries(final String queryStatement) {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
-            List<CarService> carServicesList = session.createQuery(queryStatement, CarService.class).list();
+            List<Work> workList = session.createQuery(queryStatement, Work.class).list();
 
-            return carServicesList;
+            return workList;
 
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
             return null;
         } finally {
-            LOGGER.info("\u001B[33mgetListOfCarServiceByQueries(" + queryStatement + "): Process of searching \n" +
+            LOGGER.info("\u001B[33mgetListOfWorkByQueries(" + queryStatement + "): Process of searching \n" +
                     "and mapping into the list is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public List<CarService> getListOfCarServiceByNamedQueries(final String namedQueries, final String query) {
+    public List<Work> getListOfWorkByNamedQueries(final String namedQueries, final String query) {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
-            Query<CarService> carServiceQuery = session.createNamedQuery(namedQueries, CarService.class);
+            Query<Work> workQuery = session.createNamedQuery(namedQueries, Work.class);
 
-            carServiceQuery = carServiceQuery.setParameter("parameter", query);
+            workQuery = workQuery.setParameter("parameter", query);
 
-            List<CarService> carServicerList = carServiceQuery.list();
+            List<Work> workList = workQuery.list();
 
-            return carServicerList;
+            return workList;
 
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
             return null;
         } finally {
-            LOGGER.info("\u001B[getListOfCarServiceByNamedQueries(" + namedQueries + ", " + query + "): Process of searching\n" +
+            LOGGER.info("\u001B[getListOfWorkByNamedQueries(" + namedQueries + ", " + query + "): Process of searching\n" +
                     " by Named Queries and mapping into the list is completed. Session is closed.\u001B[0m");
         }
     }
 }
-

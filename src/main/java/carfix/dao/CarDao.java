@@ -10,8 +10,11 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 
-
 public class CarDao {
+
+    public static class Statements {
+        public static String ALL_FROM_CAR = "FROM Car";
+    }
 
     private static final Logger LOGGER = LogManager.getLogger(CarDao.class);
 

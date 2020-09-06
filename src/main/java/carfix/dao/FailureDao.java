@@ -1,6 +1,6 @@
 package carfix.dao;
 
-import carfix.entities.Customer;
+import carfix.entities.Failure;
 import carfix.utils.HibernateUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,11 +10,11 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 
-public class CustomerDao {
+public class FailureDao {
 
-    private static final Logger LOGGER = LogManager.getLogger(CustomerDao.class);
+    private static final Logger LOGGER = LogManager.getLogger(FailureDao.class);
 
-    public void createCustomer(Customer customer) {
+    public void createFailure(Failure failure) {
 
         Transaction transaction = null;
 
@@ -22,7 +22,7 @@ public class CustomerDao {
 
             transaction = session.beginTransaction();
 
-            session.save(customer);
+            session.save(failure);
 
             transaction.commit();
 
@@ -34,11 +34,11 @@ public class CustomerDao {
             ex.printStackTrace();
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mCreateCustomer(" + customer + "): Process of creating is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mCreateFailure(" + failure + "): Process of creating is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public void updateCustomer(Customer customer) {
+    public void updateFailure(Failure failure) {
 
         Transaction transaction = null;
 
@@ -46,7 +46,7 @@ public class CustomerDao {
 
             transaction = session.beginTransaction();
 
-            session.update(customer);
+            session.update(failure);
 
             transaction.commit();
 
@@ -58,11 +58,11 @@ public class CustomerDao {
             ex.printStackTrace();
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mupdateCustomer(" + customer + "): Process of updating is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mupdateFailure(" + failure + "): Process of updating is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public void deleteCustomer(Customer customer) {
+    public void deleteFailure(Failure failure) {
 
         Transaction transaction = null;
 
@@ -70,7 +70,7 @@ public class CustomerDao {
 
             transaction = session.beginTransaction();
 
-            session.delete(customer);
+            session.delete(failure);
 
             transaction.commit();
 
@@ -82,63 +82,63 @@ public class CustomerDao {
             ex.printStackTrace();
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mdeleteCustomer(" + customer + "): Process of deleting is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mdeleteFailure(" + failure + "): Process of deleting is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public Customer getCustomerById(final Long customerId) {
+    public Failure getFailureById(final Long failureId) {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
-            Customer customer = session.find(Customer.class, customerId);
+            Failure failure = session.find(Failure.class, failureId);
 
-            return customer;
+            return failure;
 
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
             return null;
         } finally {
-            LOGGER.info("\u001B[33mgetCustomerById(" + customerId + "): Process of searching is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mgetFailureById(" + failureId + "): Process of searching is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public List<Customer> getListOfCustomerByQueries(final String queryStatement) {
+    public List<Failure> getListOfFailureByQueries(final String queryStatement) {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
-            List<Customer> customerList = session.createQuery(queryStatement, Customer.class).list();
+            List<Failure> failureList = session.createQuery(queryStatement, Failure.class).list();
 
-            return customerList;
+            return failureList;
 
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
             return null;
         } finally {
-            LOGGER.info("\u001B[33mgetListOfCustomerByQueries(" + queryStatement + "): Process of searching " +
-                    "and mapping into the list is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mgetListOfFailureByQueries(" + queryStatement + "): Process of searching and " +
+                    "mapping into the list is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public List<Customer> getListOfCustomerByNamedQueries(final String namedQueries, final String query) {
+    public List<Failure> getListOfFailureByNamedQueries(final String namedQueries, final String query) {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
-            Query<Customer> customerQuery = session.createNamedQuery(namedQueries, Customer.class);
+            Query<Failure> failureQuery = session.createNamedQuery(namedQueries, Failure.class);
 
-            customerQuery = customerQuery.setParameter("parameter", query);
+            failureQuery = failureQuery.setParameter("parameter", query);
 
-            List<Customer> customerList = customerQuery.list();
+            List<Failure> failureList = failureQuery.list();
 
-            return customerList;
+            return failureList;
 
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
             return null;
         } finally {
-            LOGGER.info("\u001B[33mgetListOfCustomerByNamedQueries(" + namedQueries + ", " + query + "): Process of searching\n" +
+            LOGGER.info("\u001B[33mgetListOfFailureByNamedQueries(" + namedQueries + ", " + query + "): Process of searching\n" +
                     " by Named Queries and mapping into the list is completed. Session is closed.\u001B[0m");
         }
     }

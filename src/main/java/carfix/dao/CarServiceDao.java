@@ -14,7 +14,7 @@ public class CarServiceDao {
 
     private static final Logger LOGGER = LogManager.getLogger(CarServiceDao.class);
 
-    public void createCarService(CarService carservice) {
+    public void createCarService(CarService carService) {
 
         Transaction transaction = null;
 
@@ -22,7 +22,7 @@ public class CarServiceDao {
 
             transaction = session.beginTransaction();
 
-            session.save(carservice);
+            session.save(carService);
 
             transaction.commit();
 
@@ -34,7 +34,7 @@ public class CarServiceDao {
             ex.printStackTrace();
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mcreateCarService(" + carservice + "): Process of creating is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mcreateCarService(" + carService + "): Process of creating is completed. Session is closed.\u001B[0m");
         }
     }
 

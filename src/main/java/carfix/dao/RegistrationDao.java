@@ -1,6 +1,6 @@
 package carfix.dao;
 
-import carfix.entities.Customer;
+import carfix.entities.Registration;
 import carfix.utils.HibernateUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,11 +10,11 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 
-public class CustomerDao {
+public class RegistrationDao {
 
-    private static final Logger LOGGER = LogManager.getLogger(CustomerDao.class);
+    private static final Logger LOGGER = LogManager.getLogger(RegistrationDao.class);
 
-    public void createCustomer(Customer customer) {
+    public void createRegistration(Registration registration) {
 
         Transaction transaction = null;
 
@@ -22,7 +22,7 @@ public class CustomerDao {
 
             transaction = session.beginTransaction();
 
-            session.save(customer);
+            session.save(registration);
 
             transaction.commit();
 
@@ -34,11 +34,11 @@ public class CustomerDao {
             ex.printStackTrace();
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mCreateCustomer(" + customer + "): Process of creating is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mCreateRegistration(" + registration + "): Process of creating is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public void updateCustomer(Customer customer) {
+    public void updateRegistration(Registration registration) {
 
         Transaction transaction = null;
 
@@ -46,7 +46,7 @@ public class CustomerDao {
 
             transaction = session.beginTransaction();
 
-            session.update(customer);
+            session.update(registration);
 
             transaction.commit();
 
@@ -58,11 +58,11 @@ public class CustomerDao {
             ex.printStackTrace();
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mupdateCustomer(" + customer + "): Process of updating is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mupdateRegistration(" + registration + "): Process of updating is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public void deleteCustomer(Customer customer) {
+    public void deleteRegistration(Registration registration) {
 
         Transaction transaction = null;
 
@@ -70,7 +70,7 @@ public class CustomerDao {
 
             transaction = session.beginTransaction();
 
-            session.delete(customer);
+            session.delete(registration);
 
             transaction.commit();
 
@@ -82,63 +82,63 @@ public class CustomerDao {
             ex.printStackTrace();
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mdeleteCustomer(" + customer + "): Process of deleting is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mdeleteRegistration(" + registration + "): Process of deleting is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public Customer getCustomerById(final Long customerId) {
+    public Registration getRegistrationById(final Long registrationId) {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
-            Customer customer = session.find(Customer.class, customerId);
+            Registration registration = session.find(Registration.class, registrationId);
 
-            return customer;
+            return registration;
 
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
             return null;
         } finally {
-            LOGGER.info("\u001B[33mgetCustomerById(" + customerId + "): Process of searching is completed. Session is closed.\u001B[0m");
+            LOGGER.info("\u001B[33mgetRegistrationById(" + registrationId + "): Process of searching is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public List<Customer> getListOfCustomerByQueries(final String queryStatement) {
+    public List<Registration> getListOfRegistrationByQueries(final String queryStatement) {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
-            List<Customer> customerList = session.createQuery(queryStatement, Customer.class).list();
+            List<Registration> registrationList = session.createQuery(queryStatement, Registration.class).list();
 
-            return customerList;
+            return registrationList;
 
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
             return null;
         } finally {
-            LOGGER.info("\u001B[33mgetListOfCustomerByQueries(" + queryStatement + "): Process of searching " +
+            LOGGER.info("\u001B[33mgetListOfRegistrationByQueries(" + queryStatement + "): Process of searching " +
                     "and mapping into the list is completed. Session is closed.\u001B[0m");
         }
     }
 
-    public List<Customer> getListOfCustomerByNamedQueries(final String namedQueries, final String query) {
+    public List<Registration> getListOfRegistrationByNamedQueries(final String namedQueries, final String query) {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
-            Query<Customer> customerQuery = session.createNamedQuery(namedQueries, Customer.class);
+            Query<Registration> registrationQuery = session.createNamedQuery(namedQueries, Registration.class);
 
-            customerQuery = customerQuery.setParameter("parameter", query);
+            registrationQuery = registrationQuery.setParameter("parameter", query);
 
-            List<Customer> customerList = customerQuery.list();
+            List<Registration> registrationList = registrationQuery.list();
 
-            return customerList;
+            return registrationList;
 
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
             return null;
         } finally {
-            LOGGER.info("\u001B[33mgetListOfCustomerByNamedQueries(" + namedQueries + ", " + query + "): Process of searching\n" +
+            LOGGER.info("\u001B[33mgetListOfRegistrationByNamedQueries(" + namedQueries + ", " + query + "): Process of searching\n" +
                     " by Named Queries and mapping into the list is completed. Session is closed.\u001B[0m");
         }
     }

@@ -17,4 +17,30 @@ public class Failure {
 
     @OneToMany(mappedBy = "failure")
     private List<Work> works;
+
+    public Failure() {
+    }
+
+    public Failure(Long failureId, String failureName) {
+        this.failureId = failureId;
+        this.failureName = failureName;
+    }
+
+    public Failure(Long failureId, String failureName, List<Work> works) {
+        this.failureId = failureId;
+        this.failureName = failureName;
+        this.works = works;
+    }
+
+    public Long getFailureId() { return failureId; }
+
+    public void setFailureId(Long failureId) { this.failureId = failureId; }
+
+    public String getFailureName() { return failureName; }
+
+    public void setFailureName(String failureName) { this.failureName = failureName; }
+
+    public List<Work> getWorks() { return works; }
+
+    public void setWorks(List<Work> works) { this.works = works; }
 }

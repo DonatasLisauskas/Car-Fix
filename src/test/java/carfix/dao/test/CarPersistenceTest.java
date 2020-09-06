@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 // TODO:  1) Hypersonic DB Demo for memory-only DB
 //        2) Paramertrized testing
-//        3) Site for JUnit5 test reports 
+//        3) Site for JUnit5 test reports
 
 public class CarPersistenceTest {
 

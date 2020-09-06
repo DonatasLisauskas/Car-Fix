@@ -104,4 +104,17 @@ public class Car {
     public void setDetails(List<Detail> details) {
         this.details = details;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "carId=" + carId +
+                ", seriesName='" + seriesName + '\'' +
+                ", manufactureYear='" + manufactureYear + '\'' +
+                ", engineDisplacement_L=" + engineDisplacement_L +
+                ", enginePower_KW=" + enginePower_KW +
+                ", works=" + works +
+                ", details=" + details +
+                '}';
+    }
 }

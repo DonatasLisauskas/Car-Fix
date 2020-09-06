@@ -71,11 +71,11 @@ public class CarService {
 
     public String getWorkTime() {
         return workTime;
-    }
+    }  // map To GUI element HTML : <option>
 
     public void setWorkTime(String workTime) {
         this.workTime = workTime;
-    }
+    }  // map to GUI : <form>  <input> ... POST
 
     public Long getEmployeesNum() {
         return employeesNum;

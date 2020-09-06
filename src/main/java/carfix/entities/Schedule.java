@@ -23,4 +23,42 @@ public class Schedule {
     @ManyToOne
     @JoinColumn(name = "registrationId")
     private Registration registration;
+
+    public Schedule() {
+    }
+
+    public Schedule(Long scheduleId, String date, String time, Long totalPrice) {
+        this.scheduleId = scheduleId;
+        this.date = date;
+        this.time = time;
+        this.totalPrice = totalPrice;
+    }
+
+    public Schedule(Long scheduleId, String date, String time, Long totalPrice, Registration registration) {
+        this.scheduleId = scheduleId;
+        this.date = date;
+        this.time = time;
+        this.totalPrice = totalPrice;
+        this.registration = registration;
+    }
+
+    public Long getScheduleId() { return scheduleId; }
+
+    public void setScheduleId(Long scheduleId) { this.scheduleId = scheduleId; }
+
+    public String getDate() { return date; }
+
+    public void setDate(String date) { this.date = date; }
+
+    public String getTime() { return time; }
+
+    public void setTime(String time) { this.time = time; }
+
+    public Long getTotalPrice() { return totalPrice; }
+
+    public void setTotalPrice(Long totalPrice) { this.totalPrice = totalPrice; }
+
+    public Registration getRegistration() { return registration; }
+
+    public void setRegistration(Registration registration) { this.registration = registration; }
 }

@@ -24,7 +24,7 @@ public class CarService {
     @Column(name = "employeesNum")
     private Long employeesNum;
 
-    @OneToMany(mappedBy = "carservice")
+    @OneToMany(mappedBy = "carService")
     private List<Work> works;
 
     public CarService() {

@@ -16,10 +16,10 @@ public class Car {
     private String seriesName;
 
     @Column(name = "manufactureYear")
-    private String manufactureYear;
+    private Long manufactureYear;
 
     @Column(name = "engineDisplacement_L")
-    private Long engineDisplacement_L;
+    private String engineDisplacement_L;
 
     @Column(name = "enginePower_KW")
     private Long enginePower_KW;
@@ -33,14 +33,14 @@ public class Car {
     public Car() {
     }
 
-    public Car(String seriesName, String manufactureYear, Long engineDisplacement_L, Long enginePower_KW) {
+    public Car(String seriesName, Long manufactureYear, String engineDisplacement_L, Long enginePower_KW) {
         this.seriesName = seriesName;
         this.manufactureYear = manufactureYear;
         this.engineDisplacement_L = engineDisplacement_L;
         this.enginePower_KW = enginePower_KW;
     }
 
-    public Car(String seriesName, String manufactureYear, Long engineDisplacement_L, Long enginePower_KW, List<Work> works, List<Detail> details) {
+    public Car(String seriesName, Long manufactureYear, String engineDisplacement_L, Long enginePower_KW, List<Work> works, List<Detail> details) {
         this.seriesName = seriesName;
         this.manufactureYear = manufactureYear;
         this.engineDisplacement_L = engineDisplacement_L;
@@ -65,19 +65,19 @@ public class Car {
         this.seriesName = seriesName;
     }
 
-    public String getManufactureYear() {
+    public Long getManufactureYear() {
         return manufactureYear;
     }
 
-    public void setManufactureYear(String manufactureYear) {
+    public void setManufactureYear(Long manufactureYear) {
         this.manufactureYear = manufactureYear;
     }
 
-    public Long getEngineDisplacement_L() {
+    public String getEngineDisplacement_L() {
         return engineDisplacement_L;
     }
 
-    public void setEngineDisplacement_L(Long engineDisplacement_L) {
+    public void setEngineDisplacement_L(String engineDisplacement_L) {
         this.engineDisplacement_L = engineDisplacement_L;
     }
 

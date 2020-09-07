@@ -8,6 +8,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.*;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 @TestMethodOrder(MethodOrderer.Alphanumeric.class)
 public class HibernateUtilTest {
 
@@ -17,14 +23,18 @@ public class HibernateUtilTest {
     private Session session;
 
     @BeforeAll
-    @Disabled
-    public static void setup() {
+    public static void setup() throws SQLException, ClassNotFoundException, IOException {
+
+        // Check whether such class can be loaded at all in runtime
+        assertNotNull( Class.forName("org.hsqldb.jdbc.JDBCDriver") );
         sessionFactory = HibernateUtil.getSessionFactory();
+
+        assertNotNull( sessionFactory, "Session factory initialization fails" );
+        assertFalse( sessionFactory.isClosed(), "Session cannot be opened" );
         System.out.println("SessionFactory created");
     }
 
     @AfterAll
-    @Disabled
     public static void tearDown() {
         if (sessionFactory != null) sessionFactory.close();
         System.out.println("SessionFactory destroyed");

@@ -1,8 +1,5 @@
-import JavaFX.Action;
+import JavaFX.Actions;
 import Visitor_Pattern.CarDaoPartDisplayVisitor;
-import Visitor_Pattern.DaoPart;
-import Visitor_Pattern.Visitors.CarDaoVisitor;
-import carfix.utils.HibernateUtil;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -17,6 +14,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        new Action().selectTableFromDataBase(stage);
+        /*new Actions().selectTableFromDataBase(stage);*/
+        CarDaoPartDisplayVisitor carDaoPartDisplayVisitor = new CarDaoPartDisplayVisitor();
+
+        carDaoPartDisplayVisitor.create(stage);
     }
 }

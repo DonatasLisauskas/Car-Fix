@@ -12,7 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class Action implements Buttons {
+public class Actions implements Buttons {
 
     public void selectTableFromDataBase(Stage stage) {
 
@@ -33,7 +33,7 @@ public class Action implements Buttons {
             carDaoButton.setMinHeight(height);
             carDaoButton.setMinWidth(weight);
 
-            carDaoButton.setOnAction(event1 -> new CarDaoVisitor().accept());
+            carDaoButton.setOnAction(event1 -> new CarDaoVisitor().accept(stage));
 
             carServiceDaoButton.setMinHeight(height);
             carServiceDaoButton.setMinWidth(weight);
@@ -62,8 +62,6 @@ public class Action implements Buttons {
             stage.setMinWidth(1000);
             stage.setScene(sc2);
             stage.show();
-
-
 
         });
     }

@@ -1,5 +1,6 @@
 package Visitor_Pattern;
 
+import JavaFX.Actions;
 import carfix.entities.Car;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
@@ -16,23 +17,16 @@ import java.util.Scanner;
 
 public class CarDaoPartDisplayVisitor extends DaoPartVisitor {
 
+    Actions actions = new Actions();
+
     @Override
     //CRUD
-    public DaoPartVisitor visit(Stage stage) {
+    public DaoPartVisitor visit(Stage stage, DaoPartVisitor daoPartVisitor) {
 
-        welcome();
+        actions.crudJavaFX(stage,daoPartVisitor);
 
-        switch (inputString()) {
-            case "Create": create(stage); break;
-            case "Update":
-        }
         return this;
     }
-
-    public String nameS;
-    public Long year;
-    public String litre;
-    public Long powerKW;
 
     @Override
     public void create(Stage stage) {
@@ -49,7 +43,6 @@ public class CarDaoPartDisplayVisitor extends DaoPartVisitor {
 
         selectButton.setOnAction(event -> carDao.createCar(new Car(t1.getText(), Long.valueOf(t2.getText()), t3.getText(), Long.valueOf(t4.getText()))));
 
-
         GridPane gridPane = new GridPane();
         gridPane.addRow(0,seriesName, t1);
         gridPane.addRow(1,manufactureY, t2);
@@ -65,36 +58,36 @@ public class CarDaoPartDisplayVisitor extends DaoPartVisitor {
     }
 
     @Override
-    protected void read(Stage stage) {
+    public void read(Stage stage) {
 
     }
 
     @Override
-    protected void update(Stage stage) {
+    public void update(Stage stage) {
 
     }
 
     @Override
-    protected void delete(Stage stage) {
+    public void delete(Stage stage) {
 
     }
 
     @Override
-    protected Long inputNumber() {
+    public Long inputNumber() {
         Scanner sc = new Scanner(System.in);
         Long number = sc.nextLong();
         return number;
     }
 
     @Override
-    protected String inputString() {
+    public String inputString() {
         Scanner sc = new Scanner(System.in);
         String command = sc.nextLine();
         return command;
     }
 
     @Override
-    protected void welcome() {
+    public void welcome() {
         System.out.println("Welcome to CarFix");
         System.out.println("Please select a command: (Create, Update, Delete, ID (get by ID), List (get Car DB List");
     }

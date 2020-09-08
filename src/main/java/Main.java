@@ -1,5 +1,7 @@
 import JavaFX.Actions;
 import Visitor_Pattern.CarDaoPartDisplayVisitor;
+import Visitor_Pattern.DaoPart;
+import Visitor_Pattern.Visitors.DaoVisitor;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -15,8 +17,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         /*new Actions().selectTableFromDataBase(stage);*/
-        CarDaoPartDisplayVisitor carDaoPartDisplayVisitor = new CarDaoPartDisplayVisitor();
-
-        carDaoPartDisplayVisitor.create(stage);
+        Actions actions = new Actions();
+        actions.selectTableFromDataBase(stage, new CarDaoPartDisplayVisitor());
     }
 }

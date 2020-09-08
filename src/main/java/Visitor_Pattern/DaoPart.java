@@ -4,6 +4,6 @@ import javafx.stage.Stage;
 
 public interface DaoPart {
 
-    public DaoPart accept(Stage stage);
+    public DaoPart accept(Stage stage, DaoPartVisitor daoPartVisitor);
 
 }

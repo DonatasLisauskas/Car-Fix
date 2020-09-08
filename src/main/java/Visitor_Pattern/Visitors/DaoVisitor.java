@@ -6,11 +6,11 @@ import Visitor_Pattern.DaoPartVisitor;
 import carfix.dao.CarDao;
 import javafx.stage.Stage;
 
-public class CarDaoVisitor implements DaoPart {
+public class DaoVisitor implements DaoPart {
 
     @Override
-    public DaoPart accept(Stage stage) {
-        new CarDaoPartDisplayVisitor().visit(stage);
+    public DaoPart accept(Stage stage, DaoPartVisitor daoPartVisitor) {
+        daoPartVisitor.visit(stage,daoPartVisitor);
         return this;
     }
 }

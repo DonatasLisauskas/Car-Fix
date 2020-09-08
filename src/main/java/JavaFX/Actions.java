@@ -1,5 +1,6 @@
 package JavaFX;
 
+import Visitor_Pattern.CarDaoPartDisplayVisitor;
 import Visitor_Pattern.DaoPart;
 import Visitor_Pattern.DaoPartVisitor;
 import Visitor_Pattern.Visitors.DaoVisitor;
@@ -13,7 +14,7 @@ public class Actions implements Buttons {
 
     public static DaoPart daoPart = new DaoVisitor();
 
-    public void selectTableFromDataBase(Stage stage, DaoPartVisitor daoPartVisitor) {
+    public void selectTableFromDataBase(Stage stage) {
 
         /*createButton.setOnAction(event -> daoPartVisitor.create(stage));*/
 
@@ -27,7 +28,7 @@ public class Actions implements Buttons {
         stage.setTitle("CarFix / SELECT LIST");
         stage.show();
 
-        carDaoButton.setOnAction(event1 -> daoPart.accept(stage, daoPartVisitor));
+        carDaoButton.setOnAction(event1 -> daoPart.accept(stage, new CarDaoPartDisplayVisitor()));
 
     }
 

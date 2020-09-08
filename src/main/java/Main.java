@@ -18,6 +18,6 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         /*new Actions().selectTableFromDataBase(stage);*/
         Actions actions = new Actions();
-        actions.selectTableFromDataBase(stage, new CarDaoPartDisplayVisitor());
+        actions.selectTableFromDataBase(stage);
     }
 }

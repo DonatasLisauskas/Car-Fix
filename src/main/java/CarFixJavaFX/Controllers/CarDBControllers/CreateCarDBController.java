@@ -1,4 +1,4 @@
-package CarFixJavaFX.Controllers;
+package CarFixJavaFX.Controllers.CarDBControllers;
 
 import carfix.dao.CarDao;
 import carfix.entities.Car;

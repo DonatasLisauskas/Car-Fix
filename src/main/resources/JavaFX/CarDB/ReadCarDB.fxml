@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="620.0" prefWidth="887.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CarFixJavaFX.Controllers.CarDBControllers.ReadCarDBController">
+   <children>
+      <Label layoutX="333.0" layoutY="48.0" text="# Read Car DataBase">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="363.0" layoutY="108.0" text="Select read type below">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="29.0" layoutY="179.0" onAction="#readByID" prefHeight="50.0" prefWidth="222.0" text="By ID">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="30.0" layoutY="300.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="222.0" text="By Queries">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <ButtonBar layoutX="41.0" layoutY="101.0" prefHeight="40.0" prefWidth="200.0" />
+      <Button layoutX="30.0" layoutY="441.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="221.0" text="By Named Queries">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="726.0" layoutY="558.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="122.0" text="Back">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <TextField layoutX="323.0" layoutY="191.0" prefHeight="26.0" prefWidth="141.0" fx:id="Id"/>
+      <Label layoutX="284.0" layoutY="186.0" prefHeight="35.0" prefWidth="32.0" text="ID">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField layoutX="281.0" layoutY="300.0" prefHeight="90.0" prefWidth="568.0" fx:id="byQuery"/>
+      <TextField layoutX="281.0" layoutY="441.0" prefHeight="90.0" prefWidth="568.0" fx:id="byNamedQuery" />
+   </children>
+   <effect>
+      <Lighting>
+         <bumpInput>
+            <Shadow />
+         </bumpInput>
+         <light>
+            <Light.Distant>
+               <color>
+                  <Color red="0.8352941274642944" green="0.8352941274642944" blue="0.8352941274642944" />
+               </color>
+            </Light.Distant>
+         </light>
+      </Lighting>
+   </effect>
+</AnchorPane>

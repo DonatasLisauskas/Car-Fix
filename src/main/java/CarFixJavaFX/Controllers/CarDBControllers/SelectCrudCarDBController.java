@@ -1,4 +1,4 @@
-package CarFixJavaFX.Controllers;
+package CarFixJavaFX.Controllers.CarDBControllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,16 +20,10 @@ public class SelectCrudCarDBController extends Parent implements Initializable {
     @FXML
     private Label label;
 
-    /*daoPartVisitor.create(stage));
-        readButton.setOnAction(event -> daoPartVisitor.create(stage));
-        updateButton.setOnAction(event -> daoPartVisitor.create(stage));
-        deleteButton.setOnAction(event -> daoPartVisitor.create(stage));
-        backButton.setOnAction(event -> selectTableFromDataBase(stage));*/
-
     @FXML
     private void createButton() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/CreateCarDB.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/CarDB/CreateCarDB.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -37,8 +31,12 @@ public class SelectCrudCarDBController extends Parent implements Initializable {
     }
 
     @FXML
-    private void readButton() {
-
+    private void readButton() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/CarDB/ReadCarDB.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML

@@ -1,29 +1,27 @@
 package Visitor_Pattern;
 
-import JavaFX.Actions;
 import carfix.entities.Car;
-import javafx.beans.property.StringProperty;
-import javafx.collections.ObservableList;
-import javafx.scene.Node;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class CarDaoPartDisplayVisitor extends DaoPartVisitor {
 
-    Actions actions = new Actions();
-
     @Override
     //CRUD
-    public DaoPartVisitor visit(Stage stage, DaoPartVisitor daoPartVisitor) {
+    public DaoPartVisitor visit(Stage stage, DaoPartVisitor daoPartVisitor) throws IOException {
 
-        actions.crudJavaFX(stage,daoPartVisitor);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/SelectCrudCarDB.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        stage.setScene(new Scene(root));
+        stage.show();
 
         return this;
     }

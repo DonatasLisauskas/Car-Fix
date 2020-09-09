@@ -17,7 +17,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="seriesName" layoutX="244.0" layoutY="98.0" prefHeight="26.0" prefWidth="334.0"  />
+      <TextField fx:id="seriesName" layoutX="244.0" layoutY="98.0" prefHeight="26.0" prefWidth="334.0" />
       <TextField fx:id="yearsOfManufacture" layoutX="245.0" layoutY="152.0" prefHeight="26.0" prefWidth="334.0" />
       <TextField fx:id="engineDisplacement" layoutX="245.0" layoutY="210.0" prefHeight="26.0" prefWidth="333.0" />
       <TextField fx:id="power" layoutX="244.0" layoutY="264.0" prefHeight="26.0" prefWidth="334.0" />
@@ -54,7 +54,7 @@
          <light>
             <Light.Distant>
                <color>
-                  <Color red="0.7058823704719543" green="0.8588235378265381" blue="0.8588235378265381" />
+                  <Color red="0.8352941274642944" green="0.8352941274642944" blue="0.8352941274642944" />
                </color>
             </Light.Distant>
          </light>

@@ -62,7 +62,7 @@
          <light>
             <Light.Distant>
                <color>
-                  <Color red="0.7058823704719543" green="0.8588235378265381" blue="0.8588235378265381" />
+                  <Color red="0.8352941274642944" green="0.8352941274642944" blue="0.8352941274642944" />
                </color></Light.Distant>
          </light>
       </Lighting>

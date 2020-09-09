@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CarFixJavaFX.Controllers.SelectDBController">
+   <children>
+      <Accordion layoutX="72.0" layoutY="52.0" />
+      <Label layoutX="175.0" layoutY="52.0" text="# Welcome to CarFix !">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="237.0" layoutY="124.0" text="Select DataBase">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="22.0" layoutY="286.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="114.0" text="Failures">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <Button layoutX="22.0" layoutY="175.0" onAction="#carDaoButton" prefHeight="48.0" prefWidth="114.0" text="Cars">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="167.0" layoutY="176.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="114.0" text="Car Services">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="314.0" layoutY="176.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="114.0" text="Customers">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <Button layoutX="462.0" layoutY="175.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="114.0" text="Details">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <Button layoutX="167.0" layoutY="286.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="114.0" text="Registrations">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <Button layoutX="314.0" layoutY="286.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="114.0" text="Schedules">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <Button layoutX="462.0" layoutY="286.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="114.0" text="Works">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+   </children>
+   <effect>
+      <Lighting>
+         <bumpInput>
+            <ColorAdjust brightness="1.0" contrast="-1.0" />
+         </bumpInput>
+         <light>
+            <Light.Distant>
+               <color>
+                  <Color red="0.7058823704719543" green="0.8588235378265381" blue="0.8588235378265381" />
+               </color></Light.Distant>
+         </light>
+      </Lighting>
+   </effect>
+</AnchorPane>

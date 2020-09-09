@@ -1,23 +1,19 @@
-import JavaFX.Actions;
-import Visitor_Pattern.CarDaoPartDisplayVisitor;
-import Visitor_Pattern.DaoPart;
-import Visitor_Pattern.Visitors.DaoVisitor;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
     public static void main(String[] args) {
-        /*HibernateUtil.getSessionFactory();
-        HibernateUtil.shutdown();*/
-
-        Main.launch();
-
+       launch(args);
     }
-
     @Override
-    public void start(Stage stage) throws Exception {
-        /*new Actions().selectTableFromDataBase(stage);*/
-        Actions actions = new Actions();
-        actions.selectTableFromDataBase(stage);
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("JavaFX/selectDB.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

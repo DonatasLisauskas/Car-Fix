@@ -1,6 +1,6 @@
 package CarFixJavaFX.Controllers;
 
-import Visitor_Pattern.CarDaoPartDisplayVisitor;
+import Visitor_Pattern.Visit;
 import Visitor_Pattern.DaoPart;
 import Visitor_Pattern.Visitors.DaoVisitor;
 import javafx.fxml.FXML;
@@ -21,6 +21,12 @@ public class SelectDBController {
     private void carDaoButton() throws IOException {
         DaoPart daoPart = new DaoVisitor();
         Stage stage = new Stage();
-        daoPart.accept(stage, new CarDaoPartDisplayVisitor());
+        daoPart.accept(stage, new Visit().visitCar(stage));
+    }
+
+    private void carServiceButton() throws IOException {
+        DaoPart daoPart = new DaoVisitor();
+        Stage stage = new Stage();
+        daoPart.accept(stage, new Visit());
     }
 }

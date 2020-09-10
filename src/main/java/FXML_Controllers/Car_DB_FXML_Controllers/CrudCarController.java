@@ -40,8 +40,12 @@ public class CrudCarController extends Parent implements Initializable {
     }
 
     @FXML
-    private void updateButton() {
-
+    private void updateCarButton() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Car_DB_FXML/UpdateCar.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML

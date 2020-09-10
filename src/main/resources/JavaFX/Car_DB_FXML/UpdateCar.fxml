@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="474.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_Controllers.Car_DB_FXML_Controllers.UpdateCarController">
+   <effect>
+      <Lighting>
+         <bumpInput>
+            <Shadow />
+         </bumpInput>
+         <light>
+            <Light.Distant>
+               <color>
+                  <Color red="0.8352941274642944" green="0.8352941274642944" blue="0.8352941274642944" />
+               </color>
+            </Light.Distant>
+         </light>
+      </Lighting>
+   </effect>
+   <children>
+      <Label layoutX="230.0" layoutY="28.0" text="# Update Car DataBase">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="31.0" layoutY="102.0" text="Car ID:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="id" layoutX="82.0" layoutY="101.0" prefHeight="26.0" prefWidth="101.0" />
+      <Label layoutX="32.0" layoutY="153.0" text="Series Name:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="seriesName" layoutX="230.0" layoutY="152.0" prefHeight="26.0" prefWidth="319.0" />
+      <Label layoutX="31.0" layoutY="76.0" text="Select car id which you will update " />
+      <Label layoutX="30.0" layoutY="224.0" text="Manufacture Years:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="yearsOfManufacture" layoutX="230.0" layoutY="223.0" prefHeight="26.0" prefWidth="319.0" />
+      <Label layoutX="30.0" layoutY="297.0" text="Engine Displacement / L">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="engineDisplacement" layoutX="230.0" layoutY="297.0" prefHeight="26.0" prefWidth="319.0" />
+      <Label layoutX="30.0" layoutY="366.0" text="Engine Power / kW">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="power" layoutX="230.0" layoutY="366.0" prefHeight="26.0" prefWidth="319.0" />
+      <Button layoutX="590.0" layoutY="150.0" onAction="#updateName" prefHeight="0.0" prefWidth="74.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="32.0" layoutY="413.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="74.0" text="Back">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="590.0" layoutY="224.0" onAction="#updateYears" prefHeight="26.0" prefWidth="74.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="590.0" layoutY="295.0" onAction="#updateDisplacement" prefHeight="26.0" prefWidth="74.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="590.0" layoutY="364.0" onAction="#updatePower" prefHeight="30.0" prefWidth="74.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

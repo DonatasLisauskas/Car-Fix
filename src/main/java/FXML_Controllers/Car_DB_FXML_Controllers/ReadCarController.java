@@ -1,4 +1,4 @@
-package CarFixJavaFX.Controllers.CarDBControllers;
+package FXML_Controllers.Car_DB_FXML_Controllers;
 
 import carfix.dao.CarDao;
 import carfix.entities.Car;
@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-public class ReadCarDBController {
+public class ReadCarController {
 
     @FXML
     private TextField Id;

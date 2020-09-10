@@ -1,4 +1,4 @@
-package CarFixJavaFX.Controllers.CarDBControllers;
+package FXML_Controllers.Car_DB_FXML_Controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SelectCrudCarDBController extends Parent implements Initializable {
+public class CrudCarController extends Parent implements Initializable {
 
     @FXML
     private TextField textField;
@@ -21,9 +21,9 @@ public class SelectCrudCarDBController extends Parent implements Initializable {
     private Label label;
 
     @FXML
-    private void createButton() throws IOException {
+    private void createCarButton() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/CarDB/CreateCarDB.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Car_DB_FXML/CreateCar.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -31,8 +31,8 @@ public class SelectCrudCarDBController extends Parent implements Initializable {
     }
 
     @FXML
-    private void readButton() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/CarDB/ReadCarDB.fxml"));
+    private void readCarButton() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Car_DB_FXML/ReadCar.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));

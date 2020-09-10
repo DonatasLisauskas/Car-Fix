@@ -1,10 +1,11 @@
 package Visitor_Pattern;
 
-import javafx.stage.Stage;
+import Visitor_Pattern.Visitors.Visitors;
+
 import java.io.IOException;
 
 public interface DaoPart {
 
-    public DaoPart accept(Stage stage, VisitPart visitPart) throws IOException;
+    public void accept(VisitPart visitPart, Visitors visitors) throws IOException;
 
 }

@@ -1,4 +1,4 @@
-package CarFixJavaFX.Controllers.CarDBControllers;
+package FXML_Controllers.Car_DB_FXML_Controllers;
 
 import carfix.dao.CarDao;
 import carfix.entities.Car;
@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class CreateCarDBController {
+public class CreateCarController {
 
     @FXML
     private TextField seriesName;

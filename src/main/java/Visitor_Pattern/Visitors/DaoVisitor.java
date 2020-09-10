@@ -9,8 +9,7 @@ import java.io.IOException;
 public class DaoVisitor implements DaoPart {
 
     @Override
-    public DaoPart accept(Stage stage, VisitPart visitPart) throws IOException {
-        visitPart.visitCar(stage);
-        return this;
+    public void accept(VisitPart visitPart, Visitors visitors) throws IOException {
+        visitPart.visit(visitors);
     }
 }

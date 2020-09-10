@@ -12,7 +12,7 @@ public class Visit extends VisitPart {
     @Override
     //CRUD
     public VisitPart visitCar(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/CarDB/SelectCrudCarDB.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Car_DB_FXML/CrudCar.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         stage.setScene(new Scene(root));
         stage.show();

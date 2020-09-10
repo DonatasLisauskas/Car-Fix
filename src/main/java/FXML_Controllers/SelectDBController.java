@@ -1,4 +1,4 @@
-package CarFixJavaFX.Controllers;
+package FXML_Controllers;
 
 import Visitor_Pattern.Visit;
 import Visitor_Pattern.DaoPart;

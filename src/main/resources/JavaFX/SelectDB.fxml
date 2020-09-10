@@ -6,7 +6,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CarFixJavaFX.Controllers.SelectDBController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_Controllers.SelectDBController">
    <children>
       <Accordion layoutX="72.0" layoutY="52.0" />
       <Label layoutX="175.0" layoutY="52.0" text="# Welcome to CarFix !">

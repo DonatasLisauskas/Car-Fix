@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_Controllers.Car_Service_FXML_Controllers.CreateCarServiceController">
+   <effect>
+      <Lighting>
+         <bumpInput>
+            <Shadow />
+         </bumpInput>
+         <light>
+            <Light.Distant>
+               <color>
+                  <Color red="0.8352941274642944" green="0.8352941274642944" blue="0.8352941274642944" />
+               </color>
+            </Light.Distant>
+         </light>
+      </Lighting>
+   </effect>
+   <children>
+      <Label layoutX="154.0" layoutY="54.0" text="# Fill up empty fields below">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="123.0" text="Service Name:">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="36.0" layoutY="174.0" text="Address:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="228.0" text="Work Time:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="284.0" text="Employees Number:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField layoutX="190.0" layoutY="284.0" prefHeight="26.0" prefWidth="392.0" fx:id="nameService"/>
+      <TextField layoutX="190.0" layoutY="228.0" prefHeight="26.0" prefWidth="392.0" fx:id="address"/>
+      <TextField layoutX="190.0" layoutY="174.0" prefHeight="26.0" prefWidth="392.0" fx:id="workTime"/>
+      <TextField layoutX="190.0" layoutY="123.0" prefHeight="26.0" prefWidth="392.0" fx:id="employeesNumber"/>
+      <Button layoutX="36.0" layoutY="340.0" text="Create" onAction="#createCarServiceButton">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="514.0" layoutY="339.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="68.0" text="Back">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

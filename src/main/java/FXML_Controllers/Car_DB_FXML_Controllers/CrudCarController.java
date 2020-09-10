@@ -21,7 +21,7 @@ public class CrudCarController extends Parent implements Initializable {
     private Label label;
 
     @FXML
-    private void createButton() throws IOException {
+    private void createCarButton() throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Car_DB_FXML/CreateCar.fxml"));
         Parent root = (Parent) fxmlLoader.load();
@@ -31,7 +31,7 @@ public class CrudCarController extends Parent implements Initializable {
     }
 
     @FXML
-    private void readButton() throws IOException {
+    private void readCarButton() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Car_DB_FXML/ReadCar.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();

@@ -1,5 +1,6 @@
 package Visitor_Pattern;
 
+import Visitor_Pattern.Visitors.Visitors;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,46 +12,23 @@ public class Visit extends VisitPart {
 
     @Override
     //CRUD
-    public VisitPart visitCar(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Car_DB_FXML/CrudCar.fxml"));
-        Parent root = (Parent) fxmlLoader.load();
-        stage.setScene(new Scene(root));
-        stage.show();
-        return this;
-    }
+    public void visit(Visitors visitors) throws IOException {
 
-    @Override
-    public VisitPart visitCarService(Stage stage) throws IOException {
-        return this;
-    }
-
-    @Override
-    public VisitPart visitCustomer(Stage stage) throws IOException {
-        return this;
-    }
-
-    @Override
-    public VisitPart visitDetail(Stage stage) throws IOException {
-        return this;
-    }
-
-    @Override
-    public VisitPart visitFailure(Stage stage) throws IOException {
-        return this;
-    }
-
-    @Override
-    public VisitPart visitRegistration(Stage stage) throws IOException {
-        return this;
-    }
-
-    @Override
-    public VisitPart visitSchedule(Stage stage) throws IOException {
-        return this;
-    }
-
-    @Override
-    public VisitPart visitWork(Stage stage) throws IOException {
-        return this;
+        switch (visitors) {
+            case CAR:
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Car_DB_FXML/CrudCar.fxml"));
+                Parent root = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+            break;
+            case CAR_SERVICE:
+                FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/Car_Service_DB_FXML/CrudCarService.fxml"));
+                Parent root1 = (Parent) fxmlLoader1.load();
+                Stage stage1 = new Stage();
+                stage1.setScene(new Scene(root1));
+                stage1.show();
+            break;
+        }
     }
 }

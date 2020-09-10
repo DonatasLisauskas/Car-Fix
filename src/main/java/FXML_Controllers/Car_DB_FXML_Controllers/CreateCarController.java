@@ -24,7 +24,7 @@ public class CreateCarController {
     private Label label;
 
     @FXML
-    public void selectButton() {
+    public void createCarButton() {
         CarDao carDao = new CarDao();
         carDao.createCar(new Car(seriesName.getText(), Long.valueOf(yearsOfManufacture.getText()), engineDisplacement.getText(), Long.valueOf(power.getText())));
     }

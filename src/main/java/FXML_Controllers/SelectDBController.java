@@ -2,8 +2,8 @@ package FXML_Controllers;
 
 import Visitor_Pattern.Visit;
 import Visitor_Pattern.DaoPart;
-import Visitor_Pattern.Visitors.DaoVisitor;
-import Visitor_Pattern.Visitors.Visitors;
+import Visitor_Pattern.DaoVisitor;
+import Visitor_Pattern.Visitors;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;

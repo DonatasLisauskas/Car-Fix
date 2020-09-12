@@ -36,6 +36,13 @@ public class Visit extends VisitPart {
                 stage2.setScene(new Scene(root2));
                 stage2.show();
                 break;
+            case FAILURE:
+                FXMLLoader fxmlLoader3 = new FXMLLoader(getClass().getResource("/JavaFX/Failure_DB_FXML/CrudFailure.fxml"));
+                Parent root3 = (Parent) fxmlLoader3.load();
+                Stage stage3 = new Stage();
+                stage3.setScene(new Scene(root3));
+                stage3.show();
+                break;
         }
     }
 }

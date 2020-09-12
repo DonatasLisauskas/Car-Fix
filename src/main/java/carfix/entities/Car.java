@@ -112,9 +112,6 @@ public class Car {
                 ", seriesName='" + seriesName + '\'' +
                 ", manufactureYear='" + manufactureYear + '\'' +
                 ", engineDisplacement_L=" + engineDisplacement_L +
-                ", enginePower_KW=" + enginePower_KW +
-                ", works=" + works +
-                ", details=" + details +
-                '}';
+                ", enginePower_KW=" + enginePower_KW;
     }
 }

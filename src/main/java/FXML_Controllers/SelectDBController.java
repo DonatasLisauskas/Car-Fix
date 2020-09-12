@@ -27,4 +27,9 @@ public class SelectDBController {
         DaoPart daoPart = new DaoVisitor();
         daoPart.accept(new Visit(), Visitors.CAR_SERVICE);
     }
+    @FXML
+    private void customerButton() throws IOException {
+        DaoPart daoPart = new DaoVisitor();
+        daoPart.accept(new Visit(), Visitors.CUSTOMER);
+    }
 }

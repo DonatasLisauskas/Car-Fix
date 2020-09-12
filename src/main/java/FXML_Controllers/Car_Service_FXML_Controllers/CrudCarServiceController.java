@@ -25,15 +25,16 @@ public class CrudCarServiceController implements Initializable {
 
         @FXML
         private void readCarServiceButton() throws IOException {
-            /*FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Car_DB_FXML/.fxml"));*/
-            /*Parent root = (Parent) fxmlLoader.load();*/
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Car_Service_DB_FXML/ReadCarService.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
-            /*stage.setScene(new Scene(root));*/
+            stage.setScene(new Scene(root));
             stage.show();
         }
 
         @FXML
-        private void updateButton() {
+        private void updateButton() throws IOException {
+
 
         }
 

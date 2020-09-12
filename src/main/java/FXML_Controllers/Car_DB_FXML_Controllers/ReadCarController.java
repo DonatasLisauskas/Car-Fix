@@ -27,16 +27,12 @@ public class ReadCarController extends DaoMaker {
 
         Long carId = Long.valueOf(String.valueOf(Id.getText()));
 
-        ListView<String> listView = new ListView<String>();
+        ListView listView = new ListView();
 
         Car car = carDao.getCarById(carId);
 
-        ObservableList<String> items = listView.getItems();
-        items.add("ID: " + car.getCarId() + " // " +
-                car.getSeriesName() + " // " +
-                car.getManufactureYear() + " m // " +
-                car.getEngineDisplacement_L() + " L // " +
-                car.getEnginePower_KW() + " kW //");
+        ObservableList<Car> items = listView.getItems();
+        items.add(car);
 
         VBox vBox = new VBox();
         vBox.getChildren().add(listView);

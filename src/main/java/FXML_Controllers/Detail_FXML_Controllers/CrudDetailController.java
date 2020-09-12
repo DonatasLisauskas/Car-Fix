@@ -49,13 +49,12 @@ public class CrudDetailController extends Parent implements Initializable {
     }
 
     @FXML
-    private void deleteButton() {
-
-    }
-
-    @FXML
-    private void backButton() {
-
+    private void deleteButton() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Detail_DB_FXML/DeleteDetail.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @Override

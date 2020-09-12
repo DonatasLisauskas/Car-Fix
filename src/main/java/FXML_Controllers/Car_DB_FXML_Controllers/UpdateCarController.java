@@ -3,7 +3,13 @@ package FXML_Controllers.Car_DB_FXML_Controllers;
 import carfix.dao.CarDao;
 import carfix.entities.Car;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class UpdateCarController {
 
@@ -23,7 +29,7 @@ public class UpdateCarController {
     private TextField power;
 
     @FXML
-    public void updateName() {
+    public void updateName() throws IOException {
         try {
             Car car = new Car();
             CarDao carDao = new CarDao();
@@ -32,10 +38,21 @@ public class UpdateCarController {
             carDao.updateCar(car);
         } catch (RuntimeException e) {
         } // update is completed successful, but throw Runtime exception JavaFX.
+        finally {
+            try {
+                FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));
+                Parent root1 = (Parent) fxmlLoader1.load();
+                Stage stage1 = new Stage();
+                stage1.setScene(new Scene(root1));
+                stage1.show();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
     @FXML
-    public void updateYears() {
+    public void updateYears() throws IOException {
         try {
             Car car = new Car();
             CarDao carDao = new CarDao();
@@ -44,10 +61,21 @@ public class UpdateCarController {
             carDao.updateCar(car);
         } catch (RuntimeException e) {
         } // update is completed successful, but throw Runtime exception JavaFX.
+        finally {
+            try {
+                FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));
+                Parent root1 = (Parent) fxmlLoader1.load();
+                Stage stage1 = new Stage();
+                stage1.setScene(new Scene(root1));
+                stage1.show();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
     @FXML
-    public void updateDisplacement() {
+    public void updateDisplacement() throws IOException {
         try {
             Car car = new Car();
             CarDao carDao = new CarDao();
@@ -56,10 +84,21 @@ public class UpdateCarController {
             carDao.updateCar(car);
         } catch (RuntimeException e) {
         } // update is completed successful, but throw Runtime exception JavaFX.
+        finally {
+            try {
+                FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));
+                Parent root1 = (Parent) fxmlLoader1.load();
+                Stage stage1 = new Stage();
+                stage1.setScene(new Scene(root1));
+                stage1.show();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
     @FXML
-    public void updatePower() {
+    public void updatePower() throws IOException {
         try {
             Car car = new Car();
             CarDao carDao = new CarDao();
@@ -68,5 +107,16 @@ public class UpdateCarController {
             carDao.updateCar(car);
         } catch (RuntimeException e) {
         } // update is completed successful, but throw Runtime exception JavaFX.
+        finally {
+            try {
+                FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));
+                Parent root1 = (Parent) fxmlLoader1.load();
+                Stage stage1 = new Stage();
+                stage1.setScene(new Scene(root1));
+                stage1.show();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }

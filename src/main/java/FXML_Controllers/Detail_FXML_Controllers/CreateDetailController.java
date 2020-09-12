@@ -1,14 +1,18 @@
 package FXML_Controllers.Detail_FXML_Controllers;
 
-import carfix.dao.CarDao;
-import carfix.dao.DetailDao;
+import Facade_Pattern.DaoMaker;
 import carfix.entities.Car;
 import carfix.entities.Detail;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-public class CreateDetailController {
+import java.io.IOException;
+
+public class CreateDetailController extends DaoMaker {
 
     @FXML
     private TextField detailName;
@@ -17,17 +21,23 @@ public class CreateDetailController {
     private TextField price;
 
     @FXML
-    private Car car;
-
-    @FXML
     private TextField carId;
 
-    @FXML
-    private Label label;
 
     @FXML
     public void createDetailButton() {
-        DetailDao detailDao = new DetailDao();
-        detailDao.createDetail(new Detail(detailName.getText(), Long.valueOf(price.getText()), car.getCarId()));
+
+        Car car = carDao.getCarById(Long.valueOf(carId.getText()));
+
+        detailDao.createDetail(new Detail(detailName.getText(), Long.valueOf(price.getText()), car));
+        try {
+            FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));
+            Parent root1 = (Parent) fxmlLoader1.load();
+            Stage stage1 = new Stage();
+            stage1.setScene(new Scene(root1));
+            stage1.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

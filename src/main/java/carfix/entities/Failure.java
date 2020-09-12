@@ -21,8 +21,7 @@ public class Failure {
     public Failure() {
     }
 
-    public Failure(Long failureId, String failureName) {
-        this.failureId = failureId;
+    public Failure(String failureName) {
         this.failureName = failureName;
     }
 

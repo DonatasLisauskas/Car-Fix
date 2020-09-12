@@ -28,10 +28,10 @@ public class Detail {
     public Detail() {
     }
 
-    public Detail(Long detailId, String detailName, Long price) {
-        this.detailId = detailId;
+    public Detail(String detailName, Long price, Car car) {
         this.detailName = detailName;
         this.price = price;
+        this.car = car;
     }
 
     public Detail(Long detailId, String detailName, Long price, Car car, List<Registration> registrations) {
@@ -40,12 +40,6 @@ public class Detail {
         this.price = price;
         this.car = car;
         this.registrations = registrations;
-    }
-
-    public Detail(String detailName, Long price, Long carId) {
-        this.detailName = detailName;
-        this.price = price;
-        carId = car.getCarId();
     }
 
     public Long getDetailId() { return detailId; }
@@ -62,9 +56,21 @@ public class Detail {
 
     public Car getCar() { return car; }
 
-    public void setCar(Long carId) { carId = car.getCarId(); }
+    public void setCar(Car car) {
+        this.car = car;
+    }
 
     public List<Registration> getRegistrations() { return registrations; }
 
     public void setRegistrations(List<Registration> registrations) { this.registrations = registrations; }
+
+    @Override
+    public String toString() {
+        return "Detail{" +
+                "detailId=" + detailId +
+                ", detailName='" + detailName + '\'' +
+                ", price=" + price +
+                ", car=" + car +
+                '}';
+    }
 }

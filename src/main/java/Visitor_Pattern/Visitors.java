@@ -1,4 +1,4 @@
-package Visitor_Pattern.Visitors;
+package Visitor_Pattern;
 
 public enum Visitors {
 

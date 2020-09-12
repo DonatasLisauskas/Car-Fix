@@ -1,6 +1,6 @@
 package FXML_Controllers.Detail_FXML_Controllers;
 
-import carfix.dao.DetailDao;
+import Facade_Pattern.DaoMaker;
 import carfix.entities.Detail;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ReadDetailController {
+public class ReadDetailController extends DaoMaker {
 
     @FXML
     private TextField Id;
@@ -24,18 +24,35 @@ public class ReadDetailController {
     @FXML
     private void readByID() throws IOException {
 
-        Long detailId = Long.valueOf(String.valueOf(Id.getText()));
+        Long detailID = Long.valueOf(String.valueOf(Id.getText()));
 
         ListView listView = new ListView();
 
-        Detail detail = new Detail();
-        DetailDao detailDao = new DetailDao();
-        detail = detailDao.getDetailById(detailId);
+        Detail detail = detailDao.getDetailById(detailID);
 
-        ObservableList<String> items = listView.getItems();
-        items.add("ID: " + detail.getDetailId() + " // " +
-                detail.getDetailName() + " // " +
-                detail.getCar().getCarId() + " //");
+        ObservableList<Detail> items = listView.getItems();
+        items.add(detail);
+
+        VBox vBox = new VBox();
+        vBox.getChildren().add(listView);
+
+        Stage stage = new Stage();
+
+        Scene scene = new Scene(vBox, 500, 500);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void readByQuery() throws IOException {
+
+        String query = String.valueOf((byQuery.getText()));
+
+        ListView listView = new ListView();
+
+        ObservableList<Detail> items = listView.getItems();
+
+        items.addAll(detailDao.getListOfDetailByQueries(query));
 
         VBox vBox = new VBox();
         vBox.getChildren().add(listView);

@@ -1,6 +1,5 @@
 package Visitor_Pattern;
 
-import Visitor_Pattern.Visitors.Visitors;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

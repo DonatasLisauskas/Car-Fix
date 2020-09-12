@@ -1,8 +1,4 @@
-package Visitor_Pattern.Visitors;
-
-import Visitor_Pattern.DaoPart;
-import Visitor_Pattern.VisitPart;
-import javafx.stage.Stage;
+package Visitor_Pattern;
 
 import java.io.IOException;
 

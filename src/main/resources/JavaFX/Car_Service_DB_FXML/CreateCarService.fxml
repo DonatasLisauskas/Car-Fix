@@ -46,11 +46,11 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="190.0" layoutY="284.0" prefHeight="26.0" prefWidth="392.0" fx:id="nameService"/>
-      <TextField layoutX="190.0" layoutY="228.0" prefHeight="26.0" prefWidth="392.0" fx:id="address"/>
-      <TextField layoutX="190.0" layoutY="174.0" prefHeight="26.0" prefWidth="392.0" fx:id="workTime"/>
-      <TextField layoutX="190.0" layoutY="123.0" prefHeight="26.0" prefWidth="392.0" fx:id="employeesNumber"/>
-      <Button layoutX="36.0" layoutY="340.0" text="Create" onAction="#createCarServiceButton">
+      <TextField fx:id="employeesNumber" layoutX="190.0" layoutY="284.0" prefHeight="26.0" prefWidth="392.0" />
+      <TextField fx:id="workTime" layoutX="190.0" layoutY="228.0" prefHeight="26.0" prefWidth="392.0" />
+      <TextField fx:id="address" layoutX="190.0" layoutY="174.0" prefHeight="26.0" prefWidth="392.0" />
+      <TextField fx:id="nameService" layoutX="190.0" layoutY="123.0" prefHeight="26.0" prefWidth="392.0" />
+      <Button layoutX="36.0" layoutY="340.0" onAction="#createCarServiceButton" text="Create">
          <font>
             <Font size="16.0" />
          </font>

@@ -1,7 +1,8 @@
-package FXML_Controllers.Car_DB_FXML_Controllers;
+package FXML_Controllers.Car_Service_FXML_Controllers;
 
 import Facade_Pattern.DaoMaker;
 import carfix.entities.Car;
+import carfix.entities.CarService;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -9,11 +10,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import java.io.IOException;
-import java.util.List;
-import java.util.stream.Collectors;
 
-public class ReadCarController extends DaoMaker {
+import java.io.IOException;
+
+public class ReadCarServiceController extends DaoMaker {
 
     @FXML
     private TextField Id;
@@ -25,14 +25,14 @@ public class ReadCarController extends DaoMaker {
     @FXML
     private void readByID() throws IOException {
 
-        Long carId = Long.valueOf(String.valueOf(Id.getText()));
+        Long carServiceId = Long.valueOf(String.valueOf(Id.getText()));
 
         ListView listView = new ListView();
 
-        Car car = carDao.getCarById(carId);
+        CarService carService = carServiceDao.getCarServiceById(carServiceId);
 
-        ObservableList<Car> items = listView.getItems();
-        items.add(car);
+        ObservableList<CarService> items = listView.getItems();
+        items.add(carService);
 
         VBox vBox = new VBox();
         vBox.getChildren().add(listView);
@@ -51,9 +51,9 @@ public class ReadCarController extends DaoMaker {
 
         ListView listView = new ListView();
 
-        ObservableList<Car> items = listView.getItems();
+        ObservableList<CarService> items = listView.getItems();
 
-        items.addAll(carDao.getListOfCarByQueries(query));
+        items.addAll(carServiceDao.getListOfCarServiceByQueries(query));
 
         VBox vBox = new VBox();
         vBox.getChildren().add(listView);

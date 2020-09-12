@@ -2,4 +2,4 @@
 
 link https://gitlab.com/LDonatas/project-carfix
 
-© Donatas Lisauskas, Rūta Jakštaitė, Paulius Saplys.
+© @LDonatas, @ruta.jakstaite_sda, @psaplys.

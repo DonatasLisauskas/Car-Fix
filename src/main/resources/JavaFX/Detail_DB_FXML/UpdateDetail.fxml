@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="474.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_Controllers.Detail_FXML_Controllers.UpdateDetailController">
+   <effect>
+      <Lighting>
+         <bumpInput>
+            <Shadow />
+         </bumpInput>
+         <light>
+            <Light.Distant>
+               <color>
+                  <Color red="0.8352941274642944" green="0.8352941274642944" blue="0.8352941274642944" />
+               </color>
+            </Light.Distant>
+         </light>
+      </Lighting>
+   </effect>
+   <children>
+      <Label layoutX="230.0" layoutY="28.0" text="# Update Detail DataBase">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="31.0" layoutY="102.0" text="Detail ID:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="id" layoutX="116.0" layoutY="102.0" prefHeight="26.0" prefWidth="101.0" />
+      <Label layoutX="32.0" layoutY="153.0" text="Detail Name:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="detailName" layoutX="230.0" layoutY="152.0" prefHeight="26.0" prefWidth="319.0" />
+      <Label layoutX="31.0" layoutY="76.0" text="Select car id which you will update " />
+      <Label layoutX="30.0" layoutY="224.0" text="Price / Eur ">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="price" layoutX="230.0" layoutY="223.0" prefHeight="26.0" prefWidth="319.0" />
+      <Label layoutX="30.0" layoutY="297.0" text="Car ID: ">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="carId" layoutX="230.0" layoutY="297.0" prefHeight="26.0" prefWidth="319.0" />
+      <Button layoutX="590.0" layoutY="150.0" onAction="#updateName" prefHeight="0.0" prefWidth="74.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="590.0" layoutY="224.0" onAction="#updatePrice" prefHeight="26.0" prefWidth="74.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="590.0" layoutY="295.0" onAction="#updateCarId" prefHeight="26.0" prefWidth="74.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

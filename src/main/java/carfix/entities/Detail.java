@@ -42,6 +42,12 @@ public class Detail {
         this.registrations = registrations;
     }
 
+    public Detail(String detailName, Long price, Long carId) {
+        this.detailName = detailName;
+        this.price = price;
+        carId = car.getCarId();
+    }
+
     public Long getDetailId() { return detailId; }
 
     public void setDetailId(Long detailId) { this.detailId = detailId; }
@@ -56,7 +62,7 @@ public class Detail {
 
     public Car getCar() { return car; }
 
-    public void setCar(Car car) { this.car = car; }
+    public void setCar(Long carId) { carId = car.getCarId(); }
 
     public List<Registration> getRegistrations() { return registrations; }
 

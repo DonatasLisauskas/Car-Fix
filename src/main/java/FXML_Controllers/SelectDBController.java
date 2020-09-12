@@ -37,4 +37,9 @@ public class SelectDBController {
         DaoPart daoPart = new DaoVisitor();
         daoPart.accept(new Visit(), Visitors.FAILURE);
     }
+    @FXML
+    private void detailButton() throws IOException {
+        DaoPart daoPart = new DaoVisitor();
+        daoPart.accept(new Visit(), Visitors.DETAIL);
+    }
 }

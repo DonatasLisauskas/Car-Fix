@@ -21,7 +21,7 @@ public class CreateFailureController {
     private Label label;
 
     @FXML
-    public void createFailureButton() {
+    public void createFailureButton() throws IOException{
         FailureDao failureDao = new FailureDao();
         failureDao.createFailure(new Failure(failureName.getText()));
         try {

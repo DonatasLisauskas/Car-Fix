@@ -49,13 +49,12 @@ public class CrudFailureController extends Parent implements Initializable {
     }
 
     @FXML
-    private void deleteButton() {
-
-    }
-
-    @FXML
-    private void backButton() {
-
+    private void deleteFailureButton() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Failure_DB_FXML/DeleteFailure.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @Override

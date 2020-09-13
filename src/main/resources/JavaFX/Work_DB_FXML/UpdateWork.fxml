@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="474.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_Controllers.Work_FXML_Controllers.UpdateWorkController">
+   <effect>
+      <Lighting>
+         <bumpInput>
+            <Shadow />
+         </bumpInput>
+         <light>
+            <Light.Distant>
+               <color>
+                  <Color red="0.8352941274642944" green="0.8352941274642944" blue="0.8352941274642944" />
+               </color>
+            </Light.Distant>
+         </light>
+      </Lighting>
+   </effect>
+   <children>
+      <Label layoutX="220.0" layoutY="26.0" text="# Update Work DataBase">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="100.0" prefHeight="26.0" prefWidth="102.0" text="Work ID:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="workID" layoutX="127.0" layoutY="100.0" prefHeight="26.0" prefWidth="101.0" />
+      <Label layoutX="20.0" layoutY="152.0" prefHeight="26.0" prefWidth="102.0" text="Price:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="price" layoutX="230.0" layoutY="152.0" prefHeight="26.0" prefWidth="319.0" />
+      <Label layoutX="25.0" layoutY="76.0" text="Select work id which you will update " />
+      <Label layoutX="20.0" layoutY="211.0" prefHeight="26.0" prefWidth="102.0" text="Car Service ID:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="carServiceID" layoutX="230.0" layoutY="211.0" prefHeight="26.0" prefWidth="319.0" />
+      <Label layoutX="20.0" layoutY="268.0" prefHeight="26.0" prefWidth="102.0" text="Car ID:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="carID" layoutX="230.0" layoutY="268.0" prefHeight="26.0" prefWidth="319.0" />
+      <Button layoutX="590.0" layoutY="150.0" onAction="#updatePrice" prefHeight="0.0" prefWidth="74.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="590.0" layoutY="209.0" onAction="#updateCarServiceID" prefHeight="26.0" prefWidth="74.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="590.0" layoutY="266.0" onAction="#updateCarID" prefHeight="26.0" prefWidth="74.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="20.0" layoutY="323.0" prefHeight="26.0" prefWidth="102.0" text="Failure ID:">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <TextField fx:id="failureID" layoutX="230.0" layoutY="323.0" prefHeight="26.0" prefWidth="319.0" />
+      <Button layoutX="590.0" layoutY="321.0" mnemonicParsing="false" onAction="#updateFailureID" prefHeight="30.0" prefWidth="74.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

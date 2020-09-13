@@ -34,8 +34,13 @@ public class Registration {
         this.registrationId = registrationId;
     }
 
-    public Registration(Long registrationId, Work work, Customer customer, Detail detail, List<Schedule> schedules) {
-        this.registrationId = registrationId;
+    public Registration(Work work, Customer customer, Detail detail) {
+        this.work = work;
+        this.customer = customer;
+        this.detail = detail;
+    }
+
+    public Registration(Work work, Customer customer, Detail detail, List<Schedule> schedules) {
         this.work = work;
         this.customer = customer;
         this.detail = detail;
@@ -61,4 +66,14 @@ public class Registration {
     public List<Schedule> getSchedules() { return schedules; }
 
     public void setSchedules(List<Schedule> schedules) { this.schedules = schedules; }
+
+    @Override
+    public String toString() {
+        return "Registration{" +
+                "registrationId=" + registrationId +
+                ", work=" + work +
+                ", customer=" + customer +
+                ", detail=" + detail +
+                '}';
+    }
 }

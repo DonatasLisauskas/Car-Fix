@@ -49,6 +49,20 @@ public class Visit extends VisitPart {
                 stage4.setScene(new Scene(root4));
                 stage4.show();
                 break;
+            case WORK:
+                FXMLLoader fxmlLoader5 = new FXMLLoader(getClass().getResource("/JavaFX/Work_DB_FXML/CrudWork.fxml"));
+                Parent root5 = (Parent) fxmlLoader5.load();
+                Stage stage5 = new Stage();
+                stage5.setScene(new Scene(root5));
+                stage5.show();
+                break;
+            case REGISTRATION:
+                FXMLLoader fxmlLoader6 = new FXMLLoader(getClass().getResource("/JavaFX/Registration_DB_FXML/CrudRegistration.fxml"));
+                Parent root6 = (Parent) fxmlLoader6.load();
+                Stage stage6 = new Stage();
+                stage6.setScene(new Scene(root6));
+                stage6.show();
+                break;
         }
     }
 }

@@ -51,7 +51,7 @@
          <font>
             <Font size="16.0" />
          </font></Button>
-      <Button layoutX="462.0" layoutY="286.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="114.0" text="Works">
+      <Button layoutX="462.0" layoutY="286.0" onAction="#workButton" prefHeight="48.0" prefWidth="114.0" text="Works">
          <font>
             <Font size="16.0" />
          </font></Button>

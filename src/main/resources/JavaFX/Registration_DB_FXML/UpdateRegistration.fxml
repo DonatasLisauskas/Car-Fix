@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="474.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_Controllers.Registration_FXML_Controllers.UpdateRegistrationController">
+   <effect>
+      <Lighting>
+         <bumpInput>
+            <Shadow />
+         </bumpInput>
+         <light>
+            <Light.Distant>
+               <color>
+                  <Color red="0.8352941274642944" green="0.8352941274642944" blue="0.8352941274642944" />
+               </color>
+            </Light.Distant>
+         </light>
+      </Lighting>
+   </effect>
+   <children>
+      <Label layoutX="184.0" layoutY="25.0" text="# Update Registration DataBase">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="100.0" prefHeight="26.0" prefWidth="125.0" text="Registration ID:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="registrationID" layoutX="146.0" layoutY="100.0" prefHeight="26.0" prefWidth="86.0" />
+      <Label layoutX="20.0" layoutY="152.0" prefHeight="26.0" prefWidth="102.0" text="Work ID:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="workID" layoutX="230.0" layoutY="152.0" prefHeight="26.0" prefWidth="319.0" />
+      <Label layoutX="20.0" layoutY="76.0" text="Select registration id which you will update " />
+      <Label layoutX="20.0" layoutY="211.0" prefHeight="26.0" prefWidth="102.0" text="Customer ID:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="customerID" layoutX="230.0" layoutY="211.0" prefHeight="26.0" prefWidth="319.0" />
+      <Label layoutX="20.0" layoutY="268.0" prefHeight="26.0" prefWidth="102.0" text="Detail ID:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="detailID" layoutX="230.0" layoutY="268.0" prefHeight="26.0" prefWidth="319.0" />
+      <Button layoutX="590.0" layoutY="150.0" onAction="#updateWorkIdButton" prefHeight="0.0" prefWidth="74.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="590.0" layoutY="209.0" onAction="#updateCustomerIdButton" prefHeight="26.0" prefWidth="74.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="590.0" layoutY="266.0" onAction="#updateDetailIdButton" prefHeight="26.0" prefWidth="74.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

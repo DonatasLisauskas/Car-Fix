@@ -1,6 +1,6 @@
 package FXML_Controllers.Customer_FXML_Controllers;
 
-import carfix.dao.CustomerDao;
+import Facade_Pattern.DaoMaker;
 import carfix.entities.Customer;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ReadCustomerController {
+public class ReadCustomerController extends DaoMaker {
 
     @FXML
     private TextField Id;
@@ -28,16 +28,31 @@ public class ReadCustomerController {
 
         ListView listView = new ListView();
 
-        Customer customer = new Customer();
-        CustomerDao customerDao = new CustomerDao();
-        customer = customerDao.getCustomerById(customerId);
+        Customer customer = customerDao.getCustomerById(customerId);
 
-        ObservableList<String> items = listView.getItems();
-        items.add("ID: " + customer.getCustomerId() + " // " +
-                customer.getFirstName() + " // " +
-                customer.getLastName() + " // " +
-                customer.getEmail() + " // " +
-                customer.getPhoneNumber()+ " //");
+        ObservableList<Customer> items = listView.getItems();
+        items.add(customer);
+
+        VBox vBox = new VBox();
+        vBox.getChildren().add(listView);
+
+        Stage stage = new Stage();
+
+        Scene scene = new Scene(vBox, 500, 500);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void readByQuery() throws IOException {
+
+        String query = String.valueOf((byQuery.getText()));
+
+        ListView listView = new ListView();
+
+        ObservableList<Customer> items = listView.getItems();
+
+        items.addAll(customerDao.getListOfCustomerByQueries(query));
 
         VBox vBox = new VBox();
         vBox.getChildren().add(listView);

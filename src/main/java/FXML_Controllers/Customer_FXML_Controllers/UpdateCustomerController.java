@@ -29,7 +29,7 @@ public class UpdateCustomerController {
     private TextField phoneNumber;
 
     @FXML
-    public void updateFirstName() {
+    public void updateFirstName() throws IOException{
         try {
             Customer customer = new Customer();
             CustomerDao customerDao = new CustomerDao();
@@ -52,7 +52,7 @@ public class UpdateCustomerController {
     }
 
     @FXML
-    public void updateLastName() {
+    public void updateLastName() throws IOException{
         try {
             Customer customer = new Customer();
             CustomerDao customerDao = new CustomerDao();
@@ -75,7 +75,7 @@ public class UpdateCustomerController {
     }
 
     @FXML
-    public void updateEmail() {
+    public void updateEmail() throws IOException{
         try {
             Customer customer = new Customer();
             CustomerDao customerDao = new CustomerDao();
@@ -98,7 +98,7 @@ public class UpdateCustomerController {
     }
 
     @FXML
-    public void updatePhoneNumber() {
+    public void updatePhoneNumber() throws IOException{
         try {
             Customer customer = new Customer();
             CustomerDao customerDao = new CustomerDao();

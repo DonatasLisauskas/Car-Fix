@@ -92,4 +92,15 @@ public class Customer {
     public void setRegistrations(List<Registration> registrations) {
         this.registrations = registrations;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerId=" + customerId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                '}';
+    }
 }

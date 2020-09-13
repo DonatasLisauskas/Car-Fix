@@ -1,7 +1,7 @@
-package FXML_Controllers.Failure_FXML_Controllers;
+package FXML_Controllers.Customer_FXML_Controllers;
 
-import carfix.dao.FailureDao;
-import carfix.entities.Failure;
+import Facade_Pattern.DaoMaker;
+import carfix.entities.Customer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,24 +11,18 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class UpdateFailureController {
+public class DeleteCustomerController extends DaoMaker {
 
     @FXML
-    private TextField id;
+    private TextField number;
 
     @FXML
-    private TextField failureName;
-
-    @FXML
-    public void updateName() throws IOException{
+    private void deleteButton() throws IOException {
         try {
-            Failure failure = new Failure();
-            FailureDao failureDao = new FailureDao();
-            failure = failureDao.getFailureById(Long.valueOf(id.getText()));
-            failure.setFailureName(failureName.getText());
-            failureDao.updateFailure(failure);
+            Customer customer = customerDao.getCustomerById(Long.valueOf(number.getText()));
+            customerDao.deleteCustomer(customer);
         } catch (RuntimeException e) {
-        } // update is completed successful, but throw Runtime exception JavaFX.
+        } // delete is completed successful, but throw Runtime exception JavaFX.
         finally {
             try {
                 FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));

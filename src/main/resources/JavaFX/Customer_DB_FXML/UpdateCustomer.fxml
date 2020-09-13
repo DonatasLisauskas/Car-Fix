@@ -63,11 +63,6 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="32.0" layoutY="413.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="74.0" text="Back">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
       <Button layoutX="590.0" layoutY="224.0" onAction="#updateLastName" prefHeight="26.0" prefWidth="74.0" text="Update">
          <font>
             <Font size="14.0" />

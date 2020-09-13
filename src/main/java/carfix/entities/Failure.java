@@ -42,4 +42,12 @@ public class Failure {
     public List<Work> getWorks() { return works; }
 
     public void setWorks(List<Work> works) { this.works = works; }
+
+    @Override
+    public String toString() {
+        return "Failure{" +
+                "failureId=" + failureId +
+                ", failureName='" + failureName + '\'' +
+                '}';
+    }
 }

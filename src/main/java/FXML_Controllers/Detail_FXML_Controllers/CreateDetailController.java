@@ -23,7 +23,6 @@ public class CreateDetailController extends DaoMaker {
     @FXML
     private TextField carId;
 
-
     @FXML
     public void createDetailButton() {
 

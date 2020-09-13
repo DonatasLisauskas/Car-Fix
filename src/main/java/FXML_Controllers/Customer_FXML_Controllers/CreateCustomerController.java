@@ -30,7 +30,7 @@ public class CreateCustomerController {
     private Label label;
 
     @FXML
-    public void createCustomerButton() {
+    public void createCustomerButton() throws IOException{
         CustomerDao customerDao = new CustomerDao();
         customerDao.createCustomer(new Customer(firstName.getText(), lastName.getText(), email.getText(), Long.valueOf(phoneNumber.getText())));
         try {

@@ -1,26 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="474.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_Controllers.Customer_FXML_Controllers.UpdateCustomerController">
-   <effect>
-      <Lighting>
-         <bumpInput>
-            <Shadow />
-         </bumpInput>
-         <light>
-            <Light.Distant>
-               <color>
-                  <Color red="0.8352941274642944" green="0.8352941274642944" blue="0.8352941274642944" />
-               </color>
-            </Light.Distant>
-         </light>
-      </Lighting>
-   </effect>
+<AnchorPane prefHeight="474.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_Controllers.Customer_FXML_Controllers.UpdateCustomerController">
    <children>
       <Label layoutX="230.0" layoutY="28.0" text="# Update Customer DataBase">
          <font>

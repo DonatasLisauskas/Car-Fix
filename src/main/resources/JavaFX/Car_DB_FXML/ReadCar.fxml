@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="620.0" prefWidth="887.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_Controllers.Car_DB_FXML_Controllers.ReadCarController">
@@ -38,27 +36,13 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <TextField layoutX="323.0" layoutY="191.0" prefHeight="26.0" prefWidth="141.0" fx:id="Id"/>
+      <TextField fx:id="Id" layoutX="323.0" layoutY="191.0" prefHeight="26.0" prefWidth="141.0" />
       <Label layoutX="284.0" layoutY="186.0" prefHeight="35.0" prefWidth="32.0" text="ID">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="281.0" layoutY="300.0" prefHeight="90.0" prefWidth="568.0" fx:id="byQuery"/>
-      <TextField layoutX="281.0" layoutY="441.0" prefHeight="90.0" prefWidth="568.0" fx:id="byNamedQuery" />
+      <TextField fx:id="byQuery" layoutX="281.0" layoutY="300.0" prefHeight="90.0" prefWidth="568.0" />
+      <TextField fx:id="byNamedQuery" layoutX="281.0" layoutY="441.0" prefHeight="90.0" prefWidth="568.0" />
    </children>
-   <effect>
-      <Lighting>
-         <bumpInput>
-            <Shadow />
-         </bumpInput>
-         <light>
-            <Light.Distant>
-               <color>
-                  <Color red="0.8352941274642944" green="0.8352941274642944" blue="0.8352941274642944" />
-               </color>
-            </Light.Distant>
-         </light>
-      </Lighting>
-   </effect>
 </AnchorPane>

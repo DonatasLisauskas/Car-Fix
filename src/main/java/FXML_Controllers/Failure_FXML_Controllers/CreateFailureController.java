@@ -18,9 +18,6 @@ public class CreateFailureController {
     private TextField failureName;
 
     @FXML
-    private Label label;
-
-    @FXML
     public void createFailureButton() throws IOException{
         FailureDao failureDao = new FailureDao();
         failureDao.createFailure(new Failure(failureName.getText()));

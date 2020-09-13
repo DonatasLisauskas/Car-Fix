@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="620.0" prefWidth="887.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_Controllers.Detail_FXML_Controllers.ReadDetailController">
@@ -42,18 +40,4 @@
       <TextField fx:id="byQuery" layoutX="281.0" layoutY="300.0" prefHeight="90.0" prefWidth="568.0" />
       <TextField fx:id="byNamedQuery" layoutX="281.0" layoutY="441.0" prefHeight="90.0" prefWidth="568.0" />
    </children>
-   <effect>
-      <Lighting>
-         <bumpInput>
-            <Shadow />
-         </bumpInput>
-         <light>
-            <Light.Distant>
-               <color>
-                  <Color red="0.8352941274642944" green="0.8352941274642944" blue="0.8352941274642944" />
-               </color>
-            </Light.Distant>
-         </light>
-      </Lighting>
-   </effect>
 </AnchorPane>

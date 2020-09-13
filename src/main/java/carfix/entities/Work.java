@@ -30,16 +30,16 @@ public class Work {
     @OneToMany(mappedBy = "work")
     private List<Registration> registrations;
 
-    public Work() {
-    }
+    public Work() {}
 
-    public Work(Long workId, Long price) {
-        this.workId = workId;
+    public Work(Long price, CarService carService, Car car, Failure failure) {
         this.price = price;
+        this.carService = carService;
+        this.car = car;
+        this.failure = failure;
     }
 
-    public Work(Long workId, Long price, CarService carService, Car car, Failure failure, List<Registration> registrations) {
-        this.workId = workId;
+    public Work(Long price, CarService carService, Car car, Failure failure, List<Registration> registrations) {
         this.price = price;
         this.carService = carService;
         this.car = car;
@@ -70,4 +70,15 @@ public class Work {
     public List<Registration> getRegistrations() { return registrations; }
 
     public void setRegistrations(List<Registration> registrations) { this.registrations = registrations; }
+
+    @Override
+    public String toString() {
+        return "Work{" +
+                "workId=" + workId +
+                ", price=" + price + "€" +
+                ", carService=" + carService +
+                ", car=" + car +
+                ", failure=" + failure +
+                '}';
+    }
 }

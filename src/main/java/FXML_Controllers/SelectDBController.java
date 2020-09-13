@@ -5,17 +5,10 @@ import Visitor_Pattern.DaoPart;
 import Visitor_Pattern.DaoVisitor;
 import Visitor_Pattern.Visitors;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
 public class SelectDBController {
-
-    @FXML
-    private TextField textField;
-    @FXML
-    private Label label;
 
     @FXML
     private void carDaoButton() throws IOException {
@@ -41,5 +34,10 @@ public class SelectDBController {
     private void detailButton() throws IOException {
         DaoPart daoPart = new DaoVisitor();
         daoPart.accept(new Visit(), Visitors.DETAIL);
+    }
+    @FXML
+    private void workButton() throws IOException {
+        DaoPart daoPart = new DaoVisitor();
+        daoPart.accept(new Visit(), Visitors.WORK);
     }
 }

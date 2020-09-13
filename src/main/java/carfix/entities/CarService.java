@@ -92,4 +92,15 @@ public class CarService {
     public void setWorks(List<Work> works) {
         this.works = works;
     }
+
+    @Override
+    public String toString() {
+        return "CarService{" +
+                "serviceId=" + serviceId +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", workTime='" + workTime + '\'' +
+                ", employeesNum=" + employeesNum +
+                '}';
+    }
 }

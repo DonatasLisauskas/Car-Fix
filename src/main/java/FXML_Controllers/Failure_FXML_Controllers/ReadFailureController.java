@@ -1,6 +1,6 @@
 package FXML_Controllers.Failure_FXML_Controllers;
 
-import carfix.dao.FailureDao;
+import Facade_Pattern.DaoMaker;
 import carfix.entities.Failure;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ReadFailureController {
+public class ReadFailureController extends DaoMaker {
 
     @FXML
     private TextField Id;
@@ -28,13 +28,31 @@ public class ReadFailureController {
 
         ListView listView = new ListView();
 
-        Failure failure = new Failure();
-        FailureDao failureDao = new FailureDao();
-        failure = failureDao.getFailureById(failureId);
+        Failure failure = failureDao.getFailureById(failureId);
 
-        ObservableList<String> items = listView.getItems();
-        items.add("ID: " + failure.getFailureId() + " // " +
-                failure.getFailureName() + " //");
+        ObservableList<Failure> items = listView.getItems();
+        items.add(failure);
+
+        VBox vBox = new VBox();
+        vBox.getChildren().add(listView);
+
+        Stage stage = new Stage();
+
+        Scene scene = new Scene(vBox, 500, 500);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void readByQuery() throws IOException {
+
+        String query = String.valueOf((byQuery.getText()));
+
+        ListView listView = new ListView();
+
+        ObservableList<Failure> items = listView.getItems();
+
+        items.addAll(failureDao.getListOfFailureByQueries(query));
 
         VBox vBox = new VBox();
         vBox.getChildren().add(listView);

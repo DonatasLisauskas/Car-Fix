@@ -20,7 +20,7 @@ public class UpdateFailureController {
     private TextField failureName;
 
     @FXML
-    public void updateName() {
+    public void updateName() throws IOException{
         try {
             Failure failure = new Failure();
             FailureDao failureDao = new FailureDao();

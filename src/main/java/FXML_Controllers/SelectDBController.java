@@ -45,4 +45,9 @@ public class SelectDBController {
         DaoPart daoPart = new DaoVisitor();
         daoPart.accept(new Visit(), Visitors.REGISTRATION);
     }
+    @FXML
+    private void scheduleButton() throws IOException {
+        DaoPart daoPart = new DaoVisitor();
+        daoPart.accept(new Visit(), Visitors.SCHEDULE);
+    }
 }

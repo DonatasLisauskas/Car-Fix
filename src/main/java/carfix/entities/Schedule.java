@@ -26,16 +26,13 @@ public class Schedule {
 
     public Schedule() {
     }
-
-    public Schedule(Long scheduleId, String date, String time, Long totalPrice) {
-        this.scheduleId = scheduleId;
+    public Schedule(String date, String time, Long totalPrice) {
         this.date = date;
         this.time = time;
         this.totalPrice = totalPrice;
     }
 
-    public Schedule(Long scheduleId, String date, String time, Long totalPrice, Registration registration) {
-        this.scheduleId = scheduleId;
+    public Schedule(String date, String time, Long totalPrice, Registration registration) {
         this.date = date;
         this.time = time;
         this.totalPrice = totalPrice;
@@ -61,4 +58,14 @@ public class Schedule {
     public Registration getRegistration() { return registration; }
 
     public void setRegistration(Registration registration) { this.registration = registration; }
+
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "date='" + date + '\'' +
+                ", time='" + time + '\'' +
+                ", totalPrice=" + totalPrice +
+                ", registration=" + registration +
+                '}';
+    }
 }

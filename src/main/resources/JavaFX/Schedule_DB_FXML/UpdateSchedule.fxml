@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="474.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_Controllers.Schedule_FXML_Controllers.UpdateScheduleController">
+   <children>
+      <Label layoutX="220.0" layoutY="26.0" text="# Update Schedule Database">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="100.0" prefHeight="26.0" prefWidth="102.0" text="Schedule ID:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="scheduleID" layoutX="127.0" layoutY="100.0" prefHeight="26.0" prefWidth="101.0" />
+      <Label layoutX="20.0" layoutY="152.0" prefHeight="26.0" prefWidth="102.0" text="Date:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="date" layoutX="230.0" layoutY="152.0" prefHeight="26.0" prefWidth="319.0" />
+      <Label layoutX="20.0" layoutY="75.0" text="Select schedule id which you will update " />
+      <Label layoutX="20.0" layoutY="211.0" prefHeight="26.0" prefWidth="102.0" text="Time:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="time" layoutX="230.0" layoutY="211.0" prefHeight="26.0" prefWidth="319.0" />
+      <Label layoutX="20.0" layoutY="268.0" prefHeight="26.0" prefWidth="102.0" text="Total price:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="totalPrice" layoutX="230.0" layoutY="268.0" prefHeight="26.0" prefWidth="319.0" />
+      <Button layoutX="590.0" layoutY="150.0" onAction="#updateDate" prefHeight="0.0" prefWidth="74.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="590.0" layoutY="209.0" onAction="#updateTime" prefHeight="26.0" prefWidth="74.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="590.0" layoutY="266.0" onAction="#updateTotalPrice" prefHeight="26.0" prefWidth="74.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="20.0" layoutY="323.0" prefHeight="26.0" prefWidth="134.0" text="Registration ID:">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <TextField fx:id="registrationID" layoutX="230.0" layoutY="323.0" prefHeight="26.0" prefWidth="319.0" />
+      <Button layoutX="590.0" layoutY="321.0" mnemonicParsing="false" onAction="#updateRegistrationID" prefHeight="30.0" prefWidth="74.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

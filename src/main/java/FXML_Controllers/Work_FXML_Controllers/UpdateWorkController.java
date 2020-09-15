@@ -2,7 +2,6 @@ package FXML_Controllers.Work_FXML_Controllers;
 
 import Facade_Pattern.DaoMaker;
 import carfix.entities.*;
-import carfix.utils.HibernateUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -43,8 +42,6 @@ public class UpdateWorkController extends DaoMaker {
             LOGGER.error(ex);
         } // update is completed successful, but throw Runtime exception JavaFX.
         finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mUPDATE Work: Database is UPDATED by Price!\u001B[0m");
             try {
                 FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));
@@ -69,8 +66,6 @@ public class UpdateWorkController extends DaoMaker {
             LOGGER.error(ex);
         } // update is completed successful, but throw Runtime exception JavaFX.
         finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mUPDATE Work: Database is UPDATED by CarServiceID!\u001B[0m");
             try {
                 FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));
@@ -95,8 +90,6 @@ public class UpdateWorkController extends DaoMaker {
             LOGGER.error(ex);
         } // update is completed successful, but throw Runtime exception JavaFX.
         finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mUPDATE Work: Database is UPDATED by CarID!\u001B[0m");
             try {
                 FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));
@@ -121,8 +114,6 @@ public class UpdateWorkController extends DaoMaker {
             LOGGER.error(ex);
         } // update is completed successful, but throw Runtime exception JavaFX.
         finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mUPDATE Work: Database is UPDATED by FailureID!\u001B[0m");
             try {
                 FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));

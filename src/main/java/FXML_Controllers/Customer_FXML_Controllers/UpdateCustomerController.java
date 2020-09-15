@@ -2,7 +2,6 @@ package FXML_Controllers.Customer_FXML_Controllers;
 
 import carfix.dao.CustomerDao;
 import carfix.entities.Customer;
-import carfix.utils.HibernateUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -44,8 +43,6 @@ public class UpdateCustomerController {
             LOGGER.error(ex);
         } // update is completed successful, but throw Runtime exception JavaFX.
         finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mUPDATE Customer: Database is UPDATED by FirstName!\u001B[0m");
             try {
                 FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));
@@ -70,8 +67,6 @@ public class UpdateCustomerController {
             LOGGER.error(ex);
         } // update is completed successful, but throw Runtime exception JavaFX.
         finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mUPDATE Customer: Database is UPDATED by LastName!\u001B[0m");
             try {
                 FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));
@@ -96,8 +91,6 @@ public class UpdateCustomerController {
             LOGGER.error(ex);
         } // update is completed successful, but throw Runtime exception JavaFX.
         finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mUPDATE Customer: Database is UPDATED by Email!\u001B[0m");
             try {
                 FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));
@@ -122,8 +115,6 @@ public class UpdateCustomerController {
             LOGGER.error(ex);
         } // update is completed successful, but throw Runtime exception JavaFX.
         finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mUPDATE Customer: Database is UPDATED by PhoneNumber!\u001B[0m");
             try {
                 FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));

@@ -2,7 +2,6 @@ package FXML_Controllers.Registration_FXML_Controllers;
 
 import Facade_Pattern.DaoMaker;
 import carfix.entities.*;
-import carfix.utils.HibernateUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -42,8 +41,6 @@ public class UpdateRegistrationController extends DaoMaker {
             LOGGER.error(ex);
         } // update is completed successful, but throw Runtime exception JavaFX.
         finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mUPDATE Registration: Database is UPDATED by WorkID!\u001B[0m");
             try {
                 FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));
@@ -68,8 +65,6 @@ public class UpdateRegistrationController extends DaoMaker {
             LOGGER.error(ex);
         } // update is completed successful, but throw Runtime exception JavaFX.
         finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mUPDATE Registration: Database is UPDATED by CustomerID!\u001B[0m");
             try {
                 FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));
@@ -94,8 +89,6 @@ public class UpdateRegistrationController extends DaoMaker {
             LOGGER.error(ex);
         } // update is completed successful, but throw Runtime exception JavaFX.
         finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mUPDATE Registration: Database is UPDATED by DetailID!\u001B[0m");
             try {
                 FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));

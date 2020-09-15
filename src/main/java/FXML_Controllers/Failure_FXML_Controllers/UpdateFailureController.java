@@ -2,7 +2,6 @@ package FXML_Controllers.Failure_FXML_Controllers;
 
 import carfix.dao.FailureDao;
 import carfix.entities.Failure;
-import carfix.utils.HibernateUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -36,8 +35,6 @@ public class UpdateFailureController {
             LOGGER.error(ex);
         } // update is completed successful, but throw Runtime exception JavaFX.
         finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mUPDATE Failure: Database is UPDATED by FailureName!\u001B[0m");
             try {
                 FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));

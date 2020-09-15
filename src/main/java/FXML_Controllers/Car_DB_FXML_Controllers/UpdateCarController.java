@@ -2,7 +2,6 @@ package FXML_Controllers.Car_DB_FXML_Controllers;
 
 import carfix.dao.CarDao;
 import carfix.entities.Car;
-import carfix.utils.HibernateUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -45,8 +44,6 @@ public class UpdateCarController {
             LOGGER.error(ex);
         } // update is completed successful, but throw Runtime exception JavaFX.
         finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mUPDATE Car: Database is UPDATED by Name!\u001B[0m");
             try {
                 FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));
@@ -72,8 +69,6 @@ public class UpdateCarController {
             LOGGER.error(ex);
         } // update is completed successful, but throw Runtime exception JavaFX.
         finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mUPDATE Car: Database is UPDATED by Years!\u001B[0m");
             try {
                 FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));
@@ -99,8 +94,6 @@ public class UpdateCarController {
             LOGGER.error(ex);
         } // update is completed successful, but throw Runtime exception JavaFX.
         finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mUPDATE Car: Database is UPDATED by Displacement!\u001B[0m");
             try {
                 FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));
@@ -126,8 +119,6 @@ public class UpdateCarController {
             LOGGER.error(ex);
         } // update is completed successful, but throw Runtime exception JavaFX.
         finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mUPDATE Car: Database is UPDATED by Power!\u001B[0m");
             try {
                 FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));

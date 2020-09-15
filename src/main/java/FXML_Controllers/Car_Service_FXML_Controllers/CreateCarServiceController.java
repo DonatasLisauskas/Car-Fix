@@ -2,7 +2,6 @@ package FXML_Controllers.Car_Service_FXML_Controllers;
 
 import carfix.dao.CarServiceDao;
 import carfix.entities.CarService;
-import carfix.utils.HibernateUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -44,8 +43,6 @@ public class CreateCarServiceController {
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mCREATE CarService: Database is updated!\u001B[0m");
         }
     }

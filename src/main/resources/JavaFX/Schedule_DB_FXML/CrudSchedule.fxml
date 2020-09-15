@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_Controllers.Schedule_FXML_Controllers.CrudScheduleController">
+   <children>
+      <Label layoutX="138.0" layoutY="60.0" text="# You are on Schedule DataBase">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="192.0" layoutY="123.0" text="Please select operation below">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Button layoutX="57.0" layoutY="187.0" onAction="#createScheduleButton" prefHeight="50.0" prefWidth="86.0" text="Create">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="192.0" layoutY="187.0" onAction="#readScheduleButton" prefHeight="50.0" prefWidth="86.0" text="Read">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="322.0" layoutY="187.0" onAction="#updateScheduleButton" prefHeight="50.0" prefWidth="86.0" text="Update">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="451.0" layoutY="187.0" onAction="#deleteScheduleButton" prefHeight="50.0" prefWidth="86.0" text="Delete">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

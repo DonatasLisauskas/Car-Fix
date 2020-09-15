@@ -2,16 +2,21 @@ package FXML_Controllers.Work_FXML_Controllers;
 
 import Facade_Pattern.DaoMaker;
 import carfix.entities.*;
+import carfix.utils.HibernateUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
 public class CreateWorkController extends DaoMaker {
+
+    private static final Logger LOGGER = LogManager.getLogger(CreateWorkController.class);
 
     @FXML
     private TextField price;
@@ -39,8 +44,12 @@ public class CreateWorkController extends DaoMaker {
             Stage stage1 = new Stage();
             stage1.setScene(new Scene(root1));
             stage1.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            LOGGER.error(ex);
+        } finally {
+            if (null != HibernateUtil.getSessionFactory())
+                HibernateUtil.shutdown();
+            LOGGER.info("\u001B[33mCREATE Work: Database is updated!\u001B[0m");
         }
     }
 }

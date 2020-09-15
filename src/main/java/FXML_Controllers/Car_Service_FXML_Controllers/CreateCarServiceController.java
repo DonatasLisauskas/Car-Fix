@@ -2,17 +2,22 @@ package FXML_Controllers.Car_Service_FXML_Controllers;
 
 import carfix.dao.CarServiceDao;
 import carfix.entities.CarService;
+import carfix.utils.HibernateUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
 
 public class CreateCarServiceController {
+
+    private static final Logger LOGGER = LogManager.getLogger(CreateCarServiceController.class);
 
     @FXML
     private TextField nameService;
@@ -37,7 +42,11 @@ public class CreateCarServiceController {
             stage1.setScene(new Scene(root1));
             stage1.show();
         } catch (IOException ex) {
-            ex.printStackTrace();
+            LOGGER.error(ex);
+        } finally {
+            if (null != HibernateUtil.getSessionFactory())
+                HibernateUtil.shutdown();
+            LOGGER.info("\u001B[33mCREATE CarService: Database is updated!\u001B[0m");
         }
     }
 }

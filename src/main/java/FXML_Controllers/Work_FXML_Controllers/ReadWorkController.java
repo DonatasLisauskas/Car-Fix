@@ -2,7 +2,6 @@ package FXML_Controllers.Work_FXML_Controllers;
 
 import Facade_Pattern.DaoMaker;
 import carfix.entities.Work;
-import carfix.utils.HibernateUtil;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -45,8 +44,6 @@ public class ReadWorkController extends DaoMaker {
         } catch (Exception ex) {
             LOGGER.error(ex);
         } finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mREAD Work: Database is READED by ID!\u001B[0m");
         }
     }
@@ -71,8 +68,6 @@ public class ReadWorkController extends DaoMaker {
         } catch (Exception ex) {
             LOGGER.error(ex);
         } finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mREAD Work: Database is READED by Query!\u001B[0m");
         }
     }

@@ -2,7 +2,6 @@ package FXML_Controllers.Failure_FXML_Controllers;
 
 import carfix.dao.FailureDao;
 import carfix.entities.Failure;
-import carfix.utils.HibernateUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -34,8 +33,6 @@ public class CreateFailureController {
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mCREATE Failure: Database is updated!\u001B[0m");
         }
     }

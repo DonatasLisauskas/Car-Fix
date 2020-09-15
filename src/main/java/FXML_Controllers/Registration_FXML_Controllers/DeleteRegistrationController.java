@@ -2,7 +2,6 @@ package FXML_Controllers.Registration_FXML_Controllers;
 
 import Facade_Pattern.DaoMaker;
 import carfix.entities.Registration;
-import carfix.utils.HibernateUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -30,8 +29,6 @@ public class DeleteRegistrationController extends DaoMaker {
             LOGGER.error(ex);
         }// delete is completed successful, but throw Runtime exception JavaFX.
         finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mDELETE Registration: Database is updated!\u001B[0m");
             try {
                 FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/DatabaseUpdated.fxml"));

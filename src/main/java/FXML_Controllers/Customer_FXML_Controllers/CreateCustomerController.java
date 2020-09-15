@@ -2,7 +2,6 @@ package FXML_Controllers.Customer_FXML_Controllers;
 
 import carfix.dao.CustomerDao;
 import carfix.entities.Customer;
-import carfix.utils.HibernateUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -43,8 +42,6 @@ public class CreateCustomerController {
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {
-            if (null != HibernateUtil.getSessionFactory())
-                HibernateUtil.shutdown();
             LOGGER.info("\u001B[33mCREATE Customer: Database is updated!\u001B[0m");
         }
     }

@@ -43,7 +43,7 @@
          <font>
             <Font size="16.0" />
          </font></Button>
-      <Button layoutX="314.0" layoutY="286.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="114.0" text="Schedules">
+      <Button layoutX="314.0" layoutY="286.0" onAction="#scheduleButton" prefHeight="48.0" prefWidth="114.0" text="Schedules">
          <font>
             <Font size="16.0" />
          </font></Button>

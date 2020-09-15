@@ -63,6 +63,13 @@ public class Visit extends VisitPart {
                 stage6.setScene(new Scene(root6));
                 stage6.show();
                 break;
+            case SCHEDULE:
+                FXMLLoader fxmlLoader7 = new FXMLLoader(getClass().getResource("/JavaFX/Schedule_DB_FXML/CrudSchedule.fxml"));
+                Parent root7 = (Parent) fxmlLoader7.load();
+                Stage stage7 = new Stage();
+                stage7.setScene(new Scene(root7));
+                stage7.show();
+                break;
         }
     }
 }

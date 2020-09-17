@@ -1,74 +1,89 @@
 package Visitor_Pattern;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
 public class Visit extends VisitPart {
 
+    private static final Logger LOGGER = LogManager.getLogger(Visit.class);
+
     @Override
-    //CRUD
     public void visit(Visitors visitors) throws IOException {
 
         switch (visitors) {
             case CAR:
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Car_DB_FXML/CrudCar.fxml"));
-                Parent root = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root));
-                stage.show();
-            break;
+                try {
+                    LoaderFXML.loadFXML("/JavaFX/Car_DB_FXML/CrudCar.fxml");
+                } catch (IOException ex) {
+                    LOGGER.error(ex);
+                } finally {
+                    LOGGER.info("\u001B[33mVisitor visit: CrudCar.fxml is opened!\u001B[0m");
+                }
+                break;
             case CAR_SERVICE:
-                FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/JavaFX/Car_Service_DB_FXML/CrudCarService.fxml"));
-                Parent root1 = (Parent) fxmlLoader1.load();
-                Stage stage1 = new Stage();
-                stage1.setScene(new Scene(root1));
-                stage1.show();
-            break;
+                try {
+                    LoaderFXML.loadFXML("/JavaFX/Car_Service_DB_FXML/CrudCarService.fxml");
+                } catch (IOException ex) {
+                    LOGGER.error(ex);
+                } finally {
+                    LOGGER.info("\u001B[33mVisitor visit: CrudCarService.fxml is opened!\u001B[0m");
+                }
+                break;
             case CUSTOMER:
-                FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/JavaFX/Customer_DB_FXML/CrudCustomer.fxml"));
-                Parent root2 = (Parent) fxmlLoader2.load();
-                Stage stage2 = new Stage();
-                stage2.setScene(new Scene(root2));
-                stage2.show();
+                try {
+                    LoaderFXML.loadFXML("/JavaFX/Customer_DB_FXML/CrudCustomer.fxml");
+                } catch (IOException ex) {
+                    LOGGER.error(ex);
+                } finally {
+                    LOGGER.info("\u001B[33mVisitor visit: CrudCustomer.fxml is opened!\u001B[0m");
+                }
                 break;
             case FAILURE:
-                FXMLLoader fxmlLoader3 = new FXMLLoader(getClass().getResource("/JavaFX/Failure_DB_FXML/CrudFailure.fxml"));
-                Parent root3 = (Parent) fxmlLoader3.load();
-                Stage stage3 = new Stage();
-                stage3.setScene(new Scene(root3));
-                stage3.show();
+                try {
+                    LoaderFXML.loadFXML("/JavaFX/Failure_DB_FXML/CrudFailure.fxml");
+                } catch (IOException ex) {
+                    LOGGER.error(ex);
+                } finally {
+                    LOGGER.info("\u001B[33mVisitor visit: CrudFailure.fxml is opened!\u001B[0m");
+                }
                 break;
             case DETAIL:
-                FXMLLoader fxmlLoader4 = new FXMLLoader(getClass().getResource("/JavaFX/Detail_DB_FXML/CrudDetail.fxml"));
-                Parent root4 = (Parent) fxmlLoader4.load();
-                Stage stage4 = new Stage();
-                stage4.setScene(new Scene(root4));
-                stage4.show();
+                try {
+                    LoaderFXML.loadFXML("/JavaFX/Detail_DB_FXML/CrudDetail.fxml");
+                } catch (IOException ex) {
+                    LOGGER.error(ex);
+                } finally {
+                    LOGGER.info("\u001B[33mVisitor visit: CrudDetail.fxml is opened!\u001B[0m");
+                }
                 break;
             case WORK:
-                FXMLLoader fxmlLoader5 = new FXMLLoader(getClass().getResource("/JavaFX/Work_DB_FXML/CrudWork.fxml"));
-                Parent root5 = (Parent) fxmlLoader5.load();
-                Stage stage5 = new Stage();
-                stage5.setScene(new Scene(root5));
-                stage5.show();
+                try {
+                    LoaderFXML.loadFXML("/JavaFX/Work_DB_FXML/CrudWork.fxml");
+                } catch (IOException ex) {
+                    LOGGER.error(ex);
+                } finally {
+                    LOGGER.info("\u001B[33mVisitor visit: CrudWork.fxml is opened!\u001B[0m");
+                }
                 break;
             case REGISTRATION:
-                FXMLLoader fxmlLoader6 = new FXMLLoader(getClass().getResource("/JavaFX/Registration_DB_FXML/CrudRegistration.fxml"));
-                Parent root6 = (Parent) fxmlLoader6.load();
-                Stage stage6 = new Stage();
-                stage6.setScene(new Scene(root6));
-                stage6.show();
+                try {
+                    LoaderFXML.loadFXML("/JavaFX/Registration_DB_FXML/CrudRegistration.fxml");
+                } catch (IOException ex) {
+                    LOGGER.error(ex);
+                } finally {
+                    LOGGER.info("\u001B[33mVisitor visit: CrudRegistration.fxml is opened!\u001B[0m");
+                }
                 break;
             case SCHEDULE:
-                FXMLLoader fxmlLoader7 = new FXMLLoader(getClass().getResource("/JavaFX/Schedule_DB_FXML/CrudSchedule.fxml"));
-                Parent root7 = (Parent) fxmlLoader7.load();
-                Stage stage7 = new Stage();
-                stage7.setScene(new Scene(root7));
-                stage7.show();
+                try {
+                    LoaderFXML.loadFXML("/JavaFX/Schedule_DB_FXML/CrudSchedule.fxml");
+                } catch (IOException ex) {
+                    LOGGER.error(ex);
+                } finally {
+                    LOGGER.info("\u001B[33mVisitor visit: CrudSchedule.fxml is opened!\u001B[0m");
+                }
                 break;
         }
     }

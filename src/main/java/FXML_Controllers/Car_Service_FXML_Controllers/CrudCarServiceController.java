@@ -1,11 +1,8 @@
 package FXML_Controllers.Car_Service_FXML_Controllers;
 
+import Visitor_Pattern.LoaderFXML;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,11 +17,7 @@ public class CrudCarServiceController implements Initializable {
     @FXML
     private void createCarServiceButton() throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Car_Service_DB_FXML/CreateCarService.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            LoaderFXML.loadFXML("/JavaFX/Car_Service_DB_FXML/CreateCarService.fxml");
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {
@@ -35,11 +28,7 @@ public class CrudCarServiceController implements Initializable {
     @FXML
     private void readCarServiceButton() throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Car_Service_DB_FXML/ReadCarService.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            LoaderFXML.loadFXML("/JavaFX/Car_Service_DB_FXML/ReadCarService.fxml");
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {
@@ -50,11 +39,7 @@ public class CrudCarServiceController implements Initializable {
     @FXML
     private void updateButton() throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Car_Service_DB_FXML/UpdateCarService.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            LoaderFXML.loadFXML("/JavaFX/Car_Service_DB_FXML/UpdateCarService.fxml");
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {
@@ -65,11 +50,7 @@ public class CrudCarServiceController implements Initializable {
     @FXML
     private void deleteButton() throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Car_Service_DB_FXML/DeleteCarService.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            LoaderFXML.loadFXML("/JavaFX/Car_Service_DB_FXML/DeleteCarService.fxml");
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {

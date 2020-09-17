@@ -1,11 +1,9 @@
 package FXML_Controllers.Failure_FXML_Controllers;
 
+import Visitor_Pattern.LoaderFXML;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,11 +18,7 @@ public class CrudFailureController extends Parent implements Initializable {
     @FXML
     private void createFailureButton() throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Failure_DB_FXML/CreateFailure.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            LoaderFXML.loadFXML("/JavaFX/Failure_DB_FXML/CreateFailure.fxml");
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {
@@ -35,11 +29,7 @@ public class CrudFailureController extends Parent implements Initializable {
     @FXML
     private void readFailureButton() throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Failure_DB_FXML/ReadFailure.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            LoaderFXML.loadFXML("/JavaFX/Failure_DB_FXML/ReadFailure.fxml");
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {
@@ -50,11 +40,7 @@ public class CrudFailureController extends Parent implements Initializable {
     @FXML
     private void updateFailureButton() throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Failure_DB_FXML/UpdateFailure.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            LoaderFXML.loadFXML("/JavaFX/Failure_DB_FXML/UpdateFailure.fxml");
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {
@@ -65,11 +51,7 @@ public class CrudFailureController extends Parent implements Initializable {
     @FXML
     private void deleteFailureButton() throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Failure_DB_FXML/DeleteFailure.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            LoaderFXML.loadFXML("/JavaFX/Failure_DB_FXML/DeleteFailure.fxml");
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {

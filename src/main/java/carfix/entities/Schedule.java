@@ -1,8 +1,13 @@
 package carfix.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
 @Table( name = "schedules" )
 public class Schedule {
 
@@ -38,26 +43,6 @@ public class Schedule {
         this.totalPrice = totalPrice;
         this.registration = registration;
     }
-
-    public Long getScheduleId() { return scheduleId; }
-
-    public void setScheduleId(Long scheduleId) { this.scheduleId = scheduleId; }
-
-    public String getDate() { return date; }
-
-    public void setDate(String date) { this.date = date; }
-
-    public String getTime() { return time; }
-
-    public void setTime(String time) { this.time = time; }
-
-    public Long getTotalPrice() { return totalPrice; }
-
-    public void setTotalPrice(Long totalPrice) { this.totalPrice = totalPrice; }
-
-    public Registration getRegistration() { return registration; }
-
-    public void setRegistration(Registration registration) { this.registration = registration; }
 
     @Override
     public String toString() {

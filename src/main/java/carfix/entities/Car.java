@@ -1,9 +1,13 @@
 package carfix.entities;
 
+import lombok.Getter;
+import lombok.Setter;
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
 @Table( name = "cars" )
 public class Car {
 
@@ -30,8 +34,7 @@ public class Car {
     @OneToMany(mappedBy = "car")
     private List<Detail> details;
 
-    public Car() {
-    }
+    public Car() {}
 
     public Car(String seriesName, Long manufactureYear, String engineDisplacement_L, Long enginePower_KW) {
         this.seriesName = seriesName;
@@ -46,62 +49,6 @@ public class Car {
         this.engineDisplacement_L = engineDisplacement_L;
         this.enginePower_KW = enginePower_KW;
         this.works = works;
-        this.details = details;
-    }
-
-    public Long getCarId() {
-        return carId;
-    }
-
-    public void setCarId(Long carId) {
-        this.carId = carId;
-    }
-
-    public String getSeriesName() {
-        return seriesName;
-    }
-
-    public void setSeriesName(String seriesName) {
-        this.seriesName = seriesName;
-    }
-
-    public Long getManufactureYear() {
-        return manufactureYear;
-    }
-
-    public void setManufactureYear(Long manufactureYear) {
-        this.manufactureYear = manufactureYear;
-    }
-
-    public String getEngineDisplacement_L() {
-        return engineDisplacement_L;
-    }
-
-    public void setEngineDisplacement_L(String engineDisplacement_L) {
-        this.engineDisplacement_L = engineDisplacement_L;
-    }
-
-    public Long getEnginePower_KW() {
-        return enginePower_KW;
-    }
-
-    public void setEnginePower_KW(Long enginePower_KW) {
-        this.enginePower_KW = enginePower_KW;
-    }
-
-    public List<Work> getWorks() {
-        return works;
-    }
-
-    public void setWorks(List<Work> works) {
-        this.works = works;
-    }
-
-    public List<Detail> getDetails() {
-        return details;
-    }
-
-    public void setDetails(List<Detail> details) {
         this.details = details;
     }
 

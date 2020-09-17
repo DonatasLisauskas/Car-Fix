@@ -1,30 +1,22 @@
 package FXML_Controllers.Registration_FXML_Controllers;
 
+import Visitor_Pattern.LoaderFXML;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CrudRegistrationController extends Parent implements Initializable {
+public class CrudRegistrationController implements Initializable {
 
     private static final Logger LOGGER = LogManager.getLogger(CrudRegistrationController.class);
 
     @FXML
     private void createRegistrationButton() throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Registration_DB_FXML/CreateRegistration.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            LoaderFXML.loadFXML("/JavaFX/Registration_DB_FXML/CreateRegistration.fxml");
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {
@@ -35,11 +27,7 @@ public class CrudRegistrationController extends Parent implements Initializable 
     @FXML
     private void readRegistrationButton() throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Registration_DB_FXML/ReadRegistration.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            LoaderFXML.loadFXML("/JavaFX/Registration_DB_FXML/ReadRegistration.fxml");
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {
@@ -50,11 +38,7 @@ public class CrudRegistrationController extends Parent implements Initializable 
     @FXML
     private void updateRegistrationButton() throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Registration_DB_FXML/UpdateRegistration.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            LoaderFXML.loadFXML("/JavaFX/Registration_DB_FXML/UpdateRegistration.fxml");
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {
@@ -65,11 +49,7 @@ public class CrudRegistrationController extends Parent implements Initializable 
     @FXML
     private void deleteRegistrationButton() throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Registration_DB_FXML/DeleteRegistration.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            LoaderFXML.loadFXML("/JavaFX/Registration_DB_FXML/DeleteRegistration.fxml");
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {

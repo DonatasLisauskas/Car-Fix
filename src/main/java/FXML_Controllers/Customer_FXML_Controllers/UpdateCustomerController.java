@@ -1,5 +1,6 @@
 package FXML_Controllers.Customer_FXML_Controllers;
 
+import Facade_Pattern.DaoMaker;
 import Visitor_Pattern.LoaderFXML;
 import carfix.dao.CustomerDao;
 import carfix.entities.Customer;
@@ -10,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
-public class UpdateCustomerController {
+public class UpdateCustomerController extends DaoMaker {
 
     private static final Logger LOGGER = LogManager.getLogger(UpdateCustomerController.class);
 
@@ -32,7 +33,6 @@ public class UpdateCustomerController {
     @FXML
     public void updateFirstName() throws IOException {
         try {
-            CustomerDao customerDao = new CustomerDao();
             Customer customer = customerDao.getCustomerById(Long.valueOf(id.getText()));
             customer.setFirstName(firstName.getText());
             customerDao.updateCustomer(customer);
@@ -72,7 +72,6 @@ public class UpdateCustomerController {
     @FXML
     public void updateEmail() throws IOException {
         try {
-            CustomerDao customerDao = new CustomerDao();
             Customer customer = customerDao.getCustomerById(Long.valueOf(id.getText()));
             customer.setEmail(email.getText());
             customerDao.updateCustomer(customer);
@@ -92,7 +91,6 @@ public class UpdateCustomerController {
     @FXML
     public void updatePhoneNumber() throws IOException {
         try {
-            CustomerDao customerDao = new CustomerDao();
             Customer customer = customerDao.getCustomerById(Long.valueOf(id.getText()));
             customer.setPhoneNumber(Long.valueOf(phoneNumber.getText()));
             customerDao.updateCustomer(customer);

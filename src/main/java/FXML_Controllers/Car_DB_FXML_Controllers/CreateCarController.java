@@ -1,7 +1,7 @@
 package FXML_Controllers.Car_DB_FXML_Controllers;
 
+import Facade_Pattern.DaoMaker;
 import Visitor_Pattern.LoaderFXML;
-import carfix.dao.CarDao;
 import carfix.entities.Car;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
-public class CreateCarController {
+public class CreateCarController extends DaoMaker {
 
     private static final Logger LOGGER = LogManager.getLogger(CreateCarController.class);
 
@@ -28,7 +28,6 @@ public class CreateCarController {
 
     @FXML
     public void createCarButton() throws IOException {
-        CarDao carDao = new CarDao();
         carDao.createCar(new Car(seriesName.getText(), Long.valueOf(yearsOfManufacture.getText()), engineDisplacement.getText(), Long.valueOf(power.getText())));
         try {
             LoaderFXML.loadDatabaseUpdatedFXML();

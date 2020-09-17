@@ -3,7 +3,6 @@ package FXML_Controllers.Failure_FXML_Controllers;
 import Visitor_Pattern.LoaderFXML;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,7 +10,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CrudFailureController extends Parent implements Initializable {
+public class CrudFailureController implements Initializable {
 
     private static final Logger LOGGER = LogManager.getLogger(CrudFailureController.class);
 

@@ -1,11 +1,8 @@
 package FXML_Controllers.Work_FXML_Controllers;
 
+import Visitor_Pattern.LoaderFXML;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -13,18 +10,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CrudWorkController extends Parent implements Initializable {
+public class CrudWorkController implements Initializable {
 
     private static final Logger LOGGER = LogManager.getLogger(CrudWorkController.class);
 
     @FXML
     private void createWorkButton() throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Work_DB_FXML/CreateWork.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            LoaderFXML.loadFXML("/JavaFX/Work_DB_FXML/CreateWork.fxml");
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {
@@ -35,11 +28,7 @@ public class CrudWorkController extends Parent implements Initializable {
     @FXML
     private void readWorkButton() throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Work_DB_FXML/ReadWork.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            LoaderFXML.loadFXML("/JavaFX/Work_DB_FXML/ReadWork.fxml");
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {
@@ -50,11 +39,7 @@ public class CrudWorkController extends Parent implements Initializable {
     @FXML
     private void updateWorkButton() throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Work_DB_FXML/UpdateWork.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            LoaderFXML.loadFXML("/JavaFX/Work_DB_FXML/UpdateWork.fxml");
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {
@@ -65,11 +50,7 @@ public class CrudWorkController extends Parent implements Initializable {
     @FXML
     private void deleteWorkButton() throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaFX/Work_DB_FXML/DeleteWork.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            LoaderFXML.loadFXML("/JavaFX/Work_DB_FXML/DeleteWork.fxml");
         } catch (IOException ex) {
             LOGGER.error(ex);
         } finally {

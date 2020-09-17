@@ -2,7 +2,6 @@ package Visitor_Pattern;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.io.IOException;
 
 public class Visit extends VisitPart {

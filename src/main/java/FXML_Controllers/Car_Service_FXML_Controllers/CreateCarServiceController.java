@@ -1,7 +1,7 @@
 package FXML_Controllers.Car_Service_FXML_Controllers;
 
+import Facade_Pattern.DaoMaker;
 import Visitor_Pattern.LoaderFXML;
-import carfix.dao.CarServiceDao;
 import carfix.entities.CarService;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -11,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 
 
-public class CreateCarServiceController {
+public class CreateCarServiceController extends DaoMaker {
 
     private static final Logger LOGGER = LogManager.getLogger(CreateCarServiceController.class);
 
@@ -29,7 +29,6 @@ public class CreateCarServiceController {
 
     @FXML
     private void createCarServiceButton() {
-        CarServiceDao carServiceDao = new CarServiceDao();
         carServiceDao.createCarService(new CarService(nameService.getText(), address.getText(), workTime.getText(), Long.valueOf(employeesNumber.getText())));
         try {
             LoaderFXML.loadDatabaseUpdatedFXML();

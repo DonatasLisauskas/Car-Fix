@@ -10,10 +10,15 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.junit.jupiter.api.*;   // Jupiper == JUnit5
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 // TDD (Test driven -development)
 import javax.persistence.Query;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.List;
 
 import static carfix.dao.CarDao.Statements.ALL_FROM_CAR;
@@ -25,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.*;
 // https://www.baeldung.com/junit-5-test-order
 
 // TODO:  1) Hypersonic DB Demo for memory-only DB
-//        2) Paramertrized testing
+//        2) Parametrized testing
 //        3) Site for JUnit5 test reports
 
 public class CarPersistenceTest {
@@ -41,9 +46,19 @@ public class CarPersistenceTest {
             StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                     .configure()
                     .build();
+
             factory = new MetadataSources(registry)
                     .buildMetadata()
                     .buildSessionFactory();
+
+            // Check the transaction mechanism
+            try (Session session = factory.openSession()) {
+                Transaction tx = session.beginTransaction();
+                tx.commit();
+            } catch ( Exception sqlException ) {
+                LOGGER.error( sqlException );
+                fail( sqlException );
+            }
     }
 
     @BeforeEach
@@ -52,12 +67,14 @@ public class CarPersistenceTest {
         // initializes resources before each test method
     }
 
-    @Test
     @Order(1)
-    public void persistCarEntity( String carName ) {
+    @ParameterizedTest
+    @ValueSource(strings = {"Car One", "Car Two", "Car Three"}) // three cars
+    public void persistCarEntity( final String carName ) {
     // This test should pass
 
             final Car car = new Car();
+            car.setSeriesName( carName );
 
             // ARM, remember?
             try (Session session = factory.openSession()) {

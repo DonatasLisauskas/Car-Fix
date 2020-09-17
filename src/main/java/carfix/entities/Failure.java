@@ -1,9 +1,14 @@
 package carfix.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
 @Table( name = "failures" )
 public class Failure {
 
@@ -30,18 +35,6 @@ public class Failure {
         this.failureName = failureName;
         this.works = works;
     }
-
-    public Long getFailureId() { return failureId; }
-
-    public void setFailureId(Long failureId) { this.failureId = failureId; }
-
-    public String getFailureName() { return failureName; }
-
-    public void setFailureName(String failureName) { this.failureName = failureName; }
-
-    public List<Work> getWorks() { return works; }
-
-    public void setWorks(List<Work> works) { this.works = works; }
 
     @Override
     public String toString() {

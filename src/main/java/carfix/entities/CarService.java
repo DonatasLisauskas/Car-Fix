@@ -1,9 +1,14 @@
 package carfix.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
 @Table( name = "carServices" )
 public class CarService {
 
@@ -42,54 +47,6 @@ public class CarService {
         this.address = address;
         this.workTime = workTime;
         this.employeesNum = employeesNum;
-        this.works = works;
-    }
-
-    public Long getServiceId() {
-        return serviceId;
-    }
-
-    public void setServiceId(Long serviceId) {
-        this.serviceId = serviceId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getWorkTime() {
-        return workTime;
-    }  // map To GUI element HTML : <option>
-
-    public void setWorkTime(String workTime) {
-        this.workTime = workTime;
-    }  // map to GUI : <form>  <input> ... POST
-
-    public Long getEmployeesNum() {
-        return employeesNum;
-    }
-
-    public void setEmployeesNum(Long employeesNum) {
-        this.employeesNum = employeesNum;
-    }
-
-    public List<Work> getWorks() {
-        return works;
-    }
-
-    public void setWorks(List<Work> works) {
         this.works = works;
     }
 

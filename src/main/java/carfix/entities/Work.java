@@ -1,9 +1,14 @@
 package carfix.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
 @Table( name = "works" )
 public class Work {
 
@@ -46,30 +51,6 @@ public class Work {
         this.failure = failure;
         this.registrations = registrations;
     }
-
-    public Long getWorkId() { return workId; }
-
-    public void setWorkId(Long workId) { this.workId = workId; }
-
-    public Long getPrice() { return price; }
-
-    public void setPrice(Long price) { this.price = price; }
-
-    public CarService getCarService() { return carService; }
-
-    public void setCarService(CarService carService) { this.carService = carService; }
-
-    public Car getCar() { return car; }
-
-    public void setCar(Car car) { this.car = car; }
-
-    public Failure getFailure() { return failure; }
-
-    public void setFailure(Failure failure) { this.failure = failure; }
-
-    public List<Registration> getRegistrations() { return registrations; }
-
-    public void setRegistrations(List<Registration> registrations) { this.registrations = registrations; }
 
     @Override
     public String toString() {

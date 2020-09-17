@@ -9,16 +9,10 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.6.RELEASE</version>
-    </parent>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>8</java.version>
+        <java.version>11</java.version>
 
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -144,23 +138,43 @@
         </dependency>
 
         <!-- Dependencies for development -->
+	
+	  <dependency>
+	      <groupId>org.openjfx</groupId>
+	      <artifactId>javafx-archetype-fxml</artifactId>
+	      <version>0.0.5</version>
+	  </dependency>
+	  
+	  <dependency>
+	      <groupId>org.openjfx</groupId>
+	      <artifactId>javafx-archetype-simple</artifactId>
+	      <version>0.0.5</version>
+	  </dependency>	  
+  
         <!-- https://mvnrepository.com/artifact/org.openjfx/javafx -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx</artifactId>
-            <version>11</version>
+            <version>13</version>
             <type>pom</type>
         </dependency>
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>11</version>
+            <version>13</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-fxml -->
+	
+         <dependency>
+             <groupId>org.openjfx</groupId>
+             <artifactId>javafx-fxml</artifactId>
+             <version>13</version>
+         </dependency>
         <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-fxml</artifactId>
-            <version>11</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit-platform.version}</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
@@ -185,7 +199,33 @@
         </testResources>
 
         <directory>${build.dir}</directory>
+
         <plugins>
+
+            <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-compiler-plugin</artifactId>
+                 <version>3.8.0</version>
+                 <configuration>
+                     <release>11</release>
+                 </configuration>
+                   <dependencies>
+                    <dependency>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm</artifactId>
+                        <version>6.2</version>
+                    </dependency>
+                </dependencies>		 
+             </plugin>
+             <plugin>
+                 <groupId>org.openjfx</groupId>
+                 <artifactId>javafx-maven-plugin</artifactId>
+                 <version>0.0.3</version>
+                 <configuration>
+                     <mainClass>${main.class}</mainClass>
+                 </configuration>
+             </plugin>	    
+
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
@@ -219,12 +259,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>${surefire.version}</version>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>3.0.0</version>
             </plugin>
 
             <plugin>

@@ -3,7 +3,7 @@ package carfix.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(schema = "carfixdatabase", name = "schedules")
+@Table( name = "schedules" )
 public class Schedule {
 
     @Id

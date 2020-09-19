@@ -8,7 +8,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class CarDao {
 
@@ -94,14 +96,13 @@ public class CarDao {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
-            Car car = session.find(Car.class, carId);
+            Optional<Car> car = Optional.of ( session.find(Car.class, carId) );
+            if ( car.isPresent() ) {
+                return car.get();
+            } else {
+                throw new AssertionError("Not valid ID: " + carId );
+            }
 
-            return car;
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            LOGGER.error(ex);
-            return null;
         } finally {
             LOGGER.info("\u001B[33mgetCarById(" + carId + "): Process of searching is completed. Session is closed.\u001B[0m");
         }
@@ -139,7 +140,9 @@ public class CarDao {
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
-            return null;
+
+            return new ArrayList<>();
+
         } finally {
             LOGGER.info("\u001B[33mgetListOfCarByNamedQueries(" + namedQueries + ", " + query + "): Process of searching\n" +
                     " by Named Queries and mapping into the list is completed. Session is closed.\u001B[0m");

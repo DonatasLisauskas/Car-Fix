@@ -29,7 +29,7 @@ public class Registration {
     @JoinColumn(name = "detailId")
     private Detail detail;
 
-    @OneToMany(mappedBy = "registration")
+    @OneToMany(mappedBy = "registration", fetch = FetchType.EAGER)
     private List<Schedule> schedules;
 
     public Registration() {

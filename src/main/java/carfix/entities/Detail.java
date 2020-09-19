@@ -27,7 +27,7 @@ public class Detail {
     @JoinColumn(name = "carId")
     private Car car;
 
-    @OneToMany(mappedBy = "detail")
+    @OneToMany(mappedBy = "detail", fetch = FetchType.EAGER)
     private List<Registration> registrations;
 
     public Detail() {

@@ -32,7 +32,8 @@ public class Work {
     @JoinColumn(name = "failureId")
     private Failure failure;
 
-    @OneToMany(mappedBy = "work")
+    // Well,there is a reason: https://www.baeldung.com/hibernate-initialize-proxy-exception
+    @OneToMany(mappedBy = "work", fetch = FetchType.EAGER)
     private List<Registration> registrations;
 
     public Work() {}

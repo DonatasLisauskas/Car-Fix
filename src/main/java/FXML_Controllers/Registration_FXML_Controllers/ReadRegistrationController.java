@@ -46,7 +46,7 @@ public class ReadRegistrationController extends DaoMaker {
         } catch (Exception ex) {
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mREAD Registration: Database is READED by ID!\u001B[0m");
+            LOGGER.info("\u001B[33mREAD Registration: Database is READ by ID!\u001B[0m");
         }
     }
 
@@ -70,7 +70,7 @@ public class ReadRegistrationController extends DaoMaker {
         } catch (Exception ex) {
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mREAD Registration: Database is READED by Query!\u001B[0m");
+            LOGGER.info("\u001B[33mREAD Registration: Database is READ by Query!\u001B[0m");
         }
     }
 }

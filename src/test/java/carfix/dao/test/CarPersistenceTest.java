@@ -14,6 +14,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 // TDD (Test driven -development)
+import javax.persistence.Entity;
 import javax.persistence.Query;
 
 import java.sql.Connection;
@@ -67,17 +68,51 @@ public class CarPersistenceTest {
         // initializes resources before each test method
     }
 
+    /**
+    // ARM, remember?
+    // The algorithm does the following:: ,,,tell the story
+    */
+
     @Order(1)
     @ParameterizedTest
-    @ValueSource(strings = {"Car One", "Car Two", "Car Three"}) // three cars
+    @ValueSource( strings = {"Car One", "Car Two", "Car Three"} ) // three cars
     public void persistCarEntity( final String carName ) {
     // This test should pass
 
             final Car car = new Car();
             car.setSeriesName( carName );
 
-            // ARM, remember?
-            try (Session session = factory.openSession()) {
+        /** Clean code - Uncle Bob - Robert Martin
+
+        Entity ]]] implements IEntity [[[
+
+        Entity ]]] :: myCall
+
+            ]]]]  - legend old code
+
+            [[[[  - new code
+
+
+            IEntity [[[     :: myCall
+            RefEntity [[[   :: myCall  (implements)
+
+        RefEntity [[[ extends Entity ]]] implemnts IEntity [[[
+
+        @Override
+        myCall
+
+        1 ) Entity entity = new Entity   ]]]
+
+        2 ) IEntity legend = new Entity  ]]]
+
+        3 ) IEntity legend = new RefEntity [[[
+
+        4 ) RefEntity [not extends] just implements IEntity [[[
+
+        5 ) Delete  Entity ]]]
+
+*/
+        try (Session session = factory.openSession()) {
                 Transaction tx = session.beginTransaction();
                 session.persist(car);
                 tx.commit();

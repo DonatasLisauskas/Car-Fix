@@ -4,7 +4,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.List;
+
+import static carfix.utils.ValidationMessages.INVALID_EMAIL;
+import static carfix.utils.ValidationMessages.REGEX_PHONE_NUMBERS;
 
 @Entity
 @Getter
@@ -23,13 +28,22 @@ public class Customer {
     @Column(name = "lastName")
     private String lastName;
 
+    // Looks ugly, but serves the purpose
+    @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\."
+            +"[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@"
+            +"(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
+            message= INVALID_EMAIL)
     @Column(name = "email")
+    @NotNull
     private String email;
 
-    @Column(name = "phoneNumber")
+    // Let's load from properties instead:
+    @Column(  name = "phoneNumber" )
+    @Pattern( regexp= REGEX_PHONE_NUMBERS, message="{invalid.phonenumber}")
+    @NotNull
     private Long phoneNumber;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
     private List<Registration> registrations;
 
     public Customer() {

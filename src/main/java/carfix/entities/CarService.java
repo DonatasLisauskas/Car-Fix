@@ -1,7 +1,6 @@
 package carfix.entities;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,6 +8,10 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@RequiredArgsConstructor
 @Table( name = "carServices" )
 public class CarService {
 
@@ -18,46 +21,22 @@ public class CarService {
     private Long serviceId;
 
     @Column(name = "name")
+    @NonNull
     private String name;
 
     @Column(name = "address")
+    @NonNull
     private String address;
 
     @Column(name = "workTime")
+    @NonNull
     private String workTime;
 
     @Column(name = "employeesNum")
+    @NonNull
     private Long employeesNum;
 
-    @OneToMany(mappedBy = "carService")
+    @OneToMany(mappedBy = "carService", fetch = FetchType.EAGER)
     private List<Work> works;
 
-    public CarService() {
-    }
-
-    public CarService(String name, String address, String workTime, Long employeesNum) {
-        this.name = name;
-        this.address = address;
-        this.workTime = workTime;
-        this.employeesNum = employeesNum;
-    }
-
-    public CarService(String name, String address, String workTime, Long employeesNum, List<Work> works) {
-        this.name = name;
-        this.address = address;
-        this.workTime = workTime;
-        this.employeesNum = employeesNum;
-        this.works = works;
-    }
-
-    @Override
-    public String toString() {
-        return "CarService{" +
-                "serviceId=" + serviceId +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", workTime='" + workTime + '\'' +
-                ", employeesNum=" + employeesNum +
-                '}';
-    }
 }

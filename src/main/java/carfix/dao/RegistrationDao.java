@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RegistrationDao {
@@ -97,7 +98,9 @@ public class RegistrationDao {
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
-            return null;
+
+            return new Registration();
+
         } finally {
             LOGGER.info("\u001B[33mgetRegistrationById(" + registrationId + "): Process of searching is completed. Session is closed.\u001B[0m");
         }
@@ -114,7 +117,9 @@ public class RegistrationDao {
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
-            return null;
+
+            return new ArrayList<>();
+
         } finally {
             LOGGER.info("\u001B[33mgetListOfRegistrationByQueries(" + queryStatement + "): Process of searching " +
                     "and mapping into the list is completed. Session is closed.\u001B[0m");
@@ -136,7 +141,9 @@ public class RegistrationDao {
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
-            return null;
+
+            return new ArrayList<>();
+
         } finally {
             LOGGER.info("\u001B[33mgetListOfRegistrationByNamedQueries(" + namedQueries + ", " + query + "): Process of searching\n" +
                     " by Named Queries and mapping into the list is completed. Session is closed.\u001B[0m");

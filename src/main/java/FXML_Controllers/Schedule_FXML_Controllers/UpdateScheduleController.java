@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
+import java.sql.Date;
 
 public class UpdateScheduleController extends DaoMaker {
 
@@ -33,10 +34,15 @@ public class UpdateScheduleController extends DaoMaker {
     public void updateDate() throws IOException {
         try {
             Schedule schedule = scheduleDao.getScheduleById(Long.valueOf(scheduleID.getText()));
-            schedule.setDate(date.getText());
+            schedule.setDate( Date.valueOf(date.getText()) );
             scheduleDao.updateSchedule(schedule);
         } catch (RuntimeException ex) {
             LOGGER.error(ex);
+
+            if ( ex instanceof IllegalArgumentException ) {
+                throw ex;
+            }
+
         } // update is completed successful, but throw Runtime exception JavaFX.
         finally {
             LOGGER.info("\u001B[33mUPDATE Schedule: Database is UPDATED by Date!\u001B[0m");

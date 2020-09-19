@@ -5,6 +5,7 @@ import Visitor_Pattern.LoaderFXML;
 import carfix.entities.Car;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import lombok.NonNull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,6 +16,7 @@ public class DeleteCarController extends DaoMaker {
     private static final Logger LOGGER = LogManager.getLogger(DeleteCarController.class);
 
     @FXML
+    @NonNull
     private TextField number;
 
     @FXML

@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FailureDao {
@@ -97,7 +98,9 @@ public class FailureDao {
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
-            return null;
+
+            return new Failure();
+
         } finally {
             LOGGER.info("\u001B[33mgetFailureById(" + failureId + "): Process of searching is completed. Session is closed.\u001B[0m");
         }
@@ -114,7 +117,9 @@ public class FailureDao {
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
-            return null;
+
+            return new ArrayList<>();
+
         } finally {
             LOGGER.info("\u001B[33mgetListOfFailureByQueries(" + queryStatement + "): Process of searching and " +
                     "mapping into the list is completed. Session is closed.\u001B[0m");
@@ -136,7 +141,9 @@ public class FailureDao {
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
-            return null;
+
+            return new ArrayList<>();
+
         } finally {
             LOGGER.info("\u001B[33mgetListOfFailureByNamedQueries(" + namedQueries + ", " + query + "): Process of searching\n" +
                     " by Named Queries and mapping into the list is completed. Session is closed.\u001B[0m");

@@ -42,10 +42,16 @@ public class ReadScheduleController extends DaoMaker {
             Scene scene = new Scene(vBox, 500, 500);
             stage.setScene(scene);
             stage.show();
+
         } catch (Exception ex) {
+
             LOGGER.error(ex);
+            if ( ex instanceof IllegalArgumentException ) {
+                throw ex;
+            }
+
         } finally {
-            LOGGER.info("\u001B[33mREAD Schedule: Database is READED by ID!\u001B[0m");
+            LOGGER.info("\u001B[33mREAD Schedule: Database is READ by ID!\u001B[0m");
         }
     }
 
@@ -66,10 +72,16 @@ public class ReadScheduleController extends DaoMaker {
             Scene scene = new Scene(vBox, 500, 500);
             stage.setScene(scene);
             stage.show();
+
         } catch (Exception ex) {
+
             LOGGER.error(ex);
+            if ( ex instanceof IllegalArgumentException ) {
+                throw ex;
+            }
+
         } finally {
-            LOGGER.info("\u001B[33mREAD Schedule: Database is READED by Query!\u001B[0m");
+            LOGGER.info("\u001B[33mREAD Schedule: Database is READ by Query!\u001B[0m");
         }
     }
 }

@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ScheduleDao {
@@ -97,7 +98,10 @@ public class ScheduleDao {
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
-            return null;
+
+            // It can be empty object? then use it
+            return new Schedule();
+
         } finally {
             LOGGER.info("\u001B[33mgetScheduleById(" + scheduleId + "): Process of searching is completed. Session is closed.\u001B[0m");
         }
@@ -114,7 +118,10 @@ public class ScheduleDao {
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
-            return null;
+
+            // Do not return nulls, not recommended
+            return new ArrayList<>();
+
         } finally {
             LOGGER.info("\u001B[33mgetListOfScheduleByQueries(" + queryStatement + "): Process of searching " +
                     "and mapping into the list is completed. Session is closed.\u001B[0m");
@@ -136,7 +143,9 @@ public class ScheduleDao {
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
-            return null;
+
+            return new ArrayList<>();
+
         } finally {
             LOGGER.info("\u001B[33mgetListOfScheduleByNamedQueries(" + namedQueries + ", " + query + "): Process of searching\n" +
                     " by Named Queries and mapping into the list is completed. Session is closed.\u001B[0m");

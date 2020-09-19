@@ -20,7 +20,7 @@ public class Failure {
     @Column(name = "failureName")
     private String failureName;
 
-    @OneToMany(mappedBy = "failure")
+    @OneToMany(mappedBy = "failure", fetch = FetchType.EAGER)
     private List<Work> works;
 
     public Failure() {

@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WorkDao {
@@ -97,7 +98,9 @@ public class WorkDao {
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
-            return null;
+
+            return new Work();
+
         } finally {
             LOGGER.info("\u001B[33mgetWorkById(" + workId + "): Process of searching is completed. Session is closed.\u001B[0m");
         }
@@ -114,7 +117,9 @@ public class WorkDao {
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
-            return null;
+
+            return new ArrayList<>();
+
         } finally {
             LOGGER.info("\u001B[33mgetListOfWorkByQueries(" + queryStatement + "): Process of searching \n" +
                     "and mapping into the list is completed. Session is closed.\u001B[0m");
@@ -136,7 +141,9 @@ public class WorkDao {
         } catch (Exception ex) {
             ex.printStackTrace();
             LOGGER.error(ex);
-            return null;
+
+            return new ArrayList<>();
+
         } finally {
             LOGGER.info("\u001B[getListOfWorkByNamedQueries(" + namedQueries + ", " + query + "): Process of searching\n" +
                     " by Named Queries and mapping into the list is completed. Session is closed.\u001B[0m");

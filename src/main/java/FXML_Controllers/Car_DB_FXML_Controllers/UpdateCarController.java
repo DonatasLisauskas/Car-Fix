@@ -5,6 +5,7 @@ import Visitor_Pattern.LoaderFXML;
 import carfix.entities.Car;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import lombok.NonNull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,18 +16,22 @@ public class UpdateCarController extends DaoMaker {
     private static final Logger LOGGER = LogManager.getLogger(UpdateCarController.class);
 
     @FXML
+    @NonNull
     private TextField id;
 
     @FXML
+    @NonNull
     private TextField seriesName;
 
     @FXML
+    @NonNull
     private TextField yearsOfManufacture;
 
     @FXML
     private TextField engineDisplacement;
 
     @FXML
+    @NonNull
     private TextField power;
 
     @FXML
@@ -35,7 +40,8 @@ public class UpdateCarController extends DaoMaker {
             Car car = carDao.getCarById(Long.valueOf(id.getText()));
             car.setSeriesName(seriesName.getText());
             carDao.updateCar(car);
-        } catch (RuntimeException ex) {
+        } catch (AssertionError ex) {
+            ex.printStackTrace();
             LOGGER.error(ex);
         } // update is completed successful, but throw Runtime exception JavaFX.
         finally {

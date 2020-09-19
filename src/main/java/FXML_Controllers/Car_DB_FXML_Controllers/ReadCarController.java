@@ -9,6 +9,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import lombok.NonNull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,10 +18,15 @@ public class ReadCarController extends DaoMaker {
     private static final Logger LOGGER = LogManager.getLogger(ReadCarController.class);
 
     @FXML
+    @NonNull
     private TextField Id;
+
     @FXML
+    @NonNull
     private TextField byQuery;
+
     @FXML
+    @NonNull
     private TextField byNamedQuery;
 
     @FXML
@@ -44,7 +50,7 @@ public class ReadCarController extends DaoMaker {
         } catch (Exception ex) {
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mREAD Car: Database is READED by ID!\u001B[0m");
+            LOGGER.info("\u001B[33mREAD Car: Database is READ by ID!\u001B[0m");
         }
     }
 
@@ -68,7 +74,7 @@ public class ReadCarController extends DaoMaker {
         } catch (Exception ex) {
             LOGGER.error(ex);
         } finally {
-            LOGGER.info("\u001B[33mREAD Car: Database is READED by Query!\u001B[0m");
+            LOGGER.info("\u001B[33mREAD Car: Database is READ by Query!\u001B[0m");
         }
     }
 }

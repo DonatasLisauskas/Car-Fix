@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Future;
+import java.sql.Date;
 
 @Entity
 @Getter
@@ -17,7 +19,8 @@ public class Schedule {
     private Long scheduleId;
 
     @Column(name = "date")
-    private String date;
+    @Future
+    private Date date;
 
     @Column(name = "time")
     private String time;
@@ -31,14 +34,18 @@ public class Schedule {
 
     public Schedule() {
     }
+
     public Schedule(String date, String time, Long totalPrice) {
-        this.date = date;
+
+        // Convert std converters
+        this.date = Date.valueOf( date );
         this.time = time;
         this.totalPrice = totalPrice;
     }
 
     public Schedule(String date, String time, Long totalPrice, Registration registration) {
-        this.date = date;
+
+        this.date = Date.valueOf( date );
         this.time = time;
         this.totalPrice = totalPrice;
         this.registration = registration;

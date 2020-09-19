@@ -1,13 +1,17 @@
 package carfix.entities;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@RequiredArgsConstructor
 @Table( name = "cars" )
 public class Car {
 
@@ -17,48 +21,25 @@ public class Car {
     private Long carId;
 
     @Column(name = "seriesName")
+    @NonNull
     private String seriesName;
 
     @Column(name = "manufactureYear")
+    @NonNull
     private Long manufactureYear;
 
     @Column(name = "engineDisplacement_L")
+    @NonNull
     private String engineDisplacement_L;
 
     @Column(name = "enginePower_KW")
+    @NonNull
     private Long enginePower_KW;
 
-    @OneToMany(mappedBy = "car")
+    @OneToMany(mappedBy = "car", fetch = FetchType.EAGER)
     private List<Work> works;
 
-    @OneToMany(mappedBy = "car")
+    @OneToMany(mappedBy = "car", fetch = FetchType.EAGER)
     private List<Detail> details;
 
-    public Car() {}
-
-    public Car(String seriesName, Long manufactureYear, String engineDisplacement_L, Long enginePower_KW) {
-        this.seriesName = seriesName;
-        this.manufactureYear = manufactureYear;
-        this.engineDisplacement_L = engineDisplacement_L;
-        this.enginePower_KW = enginePower_KW;
-    }
-
-    public Car(String seriesName, Long manufactureYear, String engineDisplacement_L, Long enginePower_KW, List<Work> works, List<Detail> details) {
-        this.seriesName = seriesName;
-        this.manufactureYear = manufactureYear;
-        this.engineDisplacement_L = engineDisplacement_L;
-        this.enginePower_KW = enginePower_KW;
-        this.works = works;
-        this.details = details;
-    }
-
-    @Override
-    public String toString() {
-        return "Car{" +
-                "carId=" + carId +
-                ", seriesName='" + seriesName + '\'' +
-                ", manufactureYear='" + manufactureYear + '\'' +
-                ", engineDisplacement_L=" + engineDisplacement_L +
-                ", enginePower_KW=" + enginePower_KW;
-    }
 }

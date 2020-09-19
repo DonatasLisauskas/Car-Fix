@@ -9,21 +9,30 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import lombok.NonNull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import javax.transaction.Transactional;
 
 public class ReadCarController extends DaoMaker {
 
     private static final Logger LOGGER = LogManager.getLogger(ReadCarController.class);
 
     @FXML
+    @NonNull
     private TextField Id;
+
     @FXML
+    @NonNull
     private TextField byQuery;
+
     @FXML
+    @NonNull
     private TextField byNamedQuery;
 
     @FXML
+    @Transactional
     private void readByID() {
         try {
             Long carId = Long.valueOf(String.valueOf(Id.getText()));
@@ -49,6 +58,7 @@ public class ReadCarController extends DaoMaker {
     }
 
     @FXML
+    @Transactional
     private void readByQuery() {
         try {
             String query = String.valueOf((byQuery.getText()));

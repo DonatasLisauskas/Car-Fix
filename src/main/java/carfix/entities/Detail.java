@@ -1,6 +1,8 @@
 package carfix.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,6 +11,8 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table( name = "details" )
 public class Detail {
 
@@ -30,21 +34,10 @@ public class Detail {
     @OneToMany(mappedBy = "detail")
     private List<Registration> registrations;
 
-    public Detail() {
-    }
-
     public Detail(String detailName, Long price, Car car) {
         this.detailName = detailName;
         this.price = price;
         this.car = car;
-    }
-
-    public Detail(Long detailId, String detailName, Long price, Car car, List<Registration> registrations) {
-        this.detailId = detailId;
-        this.detailName = detailName;
-        this.price = price;
-        this.car = car;
-        this.registrations = registrations;
     }
 
     @Override

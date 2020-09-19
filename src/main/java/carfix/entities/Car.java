@@ -1,6 +1,8 @@
 package carfix.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import javax.persistence.*;
 import java.util.List;
@@ -8,6 +10,8 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table( name = "cars" )
 public class Car {
 
@@ -28,28 +32,17 @@ public class Car {
     @Column(name = "enginePower_KW")
     private Long enginePower_KW;
 
-    @OneToMany(mappedBy = "car")
+    @OneToMany(mappedBy = "car", fetch = FetchType.EAGER)
     private List<Work> works;
 
-    @OneToMany(mappedBy = "car")
+    @OneToMany(mappedBy = "car", fetch = FetchType.LAZY)
     private List<Detail> details;
-
-    public Car() {}
 
     public Car(String seriesName, Long manufactureYear, String engineDisplacement_L, Long enginePower_KW) {
         this.seriesName = seriesName;
         this.manufactureYear = manufactureYear;
         this.engineDisplacement_L = engineDisplacement_L;
         this.enginePower_KW = enginePower_KW;
-    }
-
-    public Car(String seriesName, Long manufactureYear, String engineDisplacement_L, Long enginePower_KW, List<Work> works, List<Detail> details) {
-        this.seriesName = seriesName;
-        this.manufactureYear = manufactureYear;
-        this.engineDisplacement_L = engineDisplacement_L;
-        this.enginePower_KW = enginePower_KW;
-        this.works = works;
-        this.details = details;
     }
 
     @Override

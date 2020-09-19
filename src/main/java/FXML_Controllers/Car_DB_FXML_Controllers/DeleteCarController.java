@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.transaction.Transactional;
 import java.io.IOException;
 
 public class DeleteCarController extends DaoMaker {
@@ -18,6 +19,7 @@ public class DeleteCarController extends DaoMaker {
     private TextField number;
 
     @FXML
+    @Transactional
     private void deleteButton() throws IOException {
         try {
             Car car = carDao.getCarById(Long.valueOf(number.getText()));

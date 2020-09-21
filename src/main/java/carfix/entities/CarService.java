@@ -1,15 +1,19 @@
 package carfix.entities;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
-@Table( name = "carServices" )
+@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Table(name = "carServices")
 public class CarService {
 
     @Id
@@ -18,46 +22,22 @@ public class CarService {
     private Long serviceId;
 
     @Column(name = "name")
+    @NonNull
     private String name;
 
     @Column(name = "address")
+    @NonNull
     private String address;
 
     @Column(name = "workTime")
-    private String workTime;
+    @NonNull
+    private Date workTime;
 
     @Column(name = "employeesNum")
+    @NonNull
     private Long employeesNum;
 
-    @OneToMany(mappedBy = "carService")
+    @OneToMany(mappedBy = "carService", fetch = FetchType.EAGER)
     private List<Work> works;
 
-    public CarService() {
-    }
-
-    public CarService(String name, String address, String workTime, Long employeesNum) {
-        this.name = name;
-        this.address = address;
-        this.workTime = workTime;
-        this.employeesNum = employeesNum;
-    }
-
-    public CarService(String name, String address, String workTime, Long employeesNum, List<Work> works) {
-        this.name = name;
-        this.address = address;
-        this.workTime = workTime;
-        this.employeesNum = employeesNum;
-        this.works = works;
-    }
-
-    @Override
-    public String toString() {
-        return "CarService{" +
-                "serviceId=" + serviceId +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", workTime='" + workTime + '\'' +
-                ", employeesNum=" + employeesNum +
-                '}';
-    }
 }

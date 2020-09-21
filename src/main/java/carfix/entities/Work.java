@@ -1,7 +1,6 @@
 package carfix.entities;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,6 +8,10 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Table( name = "works" )
 public class Work {
 
@@ -18,48 +21,25 @@ public class Work {
     private Long workId;
 
     @Column(name = "price")
+    @NonNull
     private Long price;
 
     @ManyToOne
     @JoinColumn(name = "carServiceId")
+    @NonNull
     private CarService carService;
 
     @ManyToOne
     @JoinColumn(name = "carId")
+    @NonNull
     private Car car;
 
     @ManyToOne
     @JoinColumn(name = "failureId")
+    @NonNull
     private Failure failure;
 
-    @OneToMany(mappedBy = "work")
+    @OneToMany(mappedBy = "work", fetch = FetchType.EAGER)
     private List<Registration> registrations;
 
-    public Work() {}
-
-    public Work(Long price, CarService carService, Car car, Failure failure) {
-        this.price = price;
-        this.carService = carService;
-        this.car = car;
-        this.failure = failure;
-    }
-
-    public Work(Long price, CarService carService, Car car, Failure failure, List<Registration> registrations) {
-        this.price = price;
-        this.carService = carService;
-        this.car = car;
-        this.failure = failure;
-        this.registrations = registrations;
-    }
-
-    @Override
-    public String toString() {
-        return "Work{" +
-                "workId=" + workId +
-                ", price=" + price + "€" +
-                ", carService=" + carService +
-                ", car=" + car +
-                ", failure=" + failure +
-                '}';
-    }
 }

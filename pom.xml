@@ -12,7 +12,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
 
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -155,20 +155,20 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx</artifactId>
-            <version>13</version>
+            <version>15</version>
             <type>pom</type>
         </dependency>
 
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>13</version>
+            <version>15</version>
         </dependency>
 	
          <dependency>
              <groupId>org.openjfx</groupId>
              <artifactId>javafx-fxml</artifactId>
-             <version>13</version>
+             <version>15</version>
          </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -213,7 +213,7 @@
                  <artifactId>maven-compiler-plugin</artifactId>
                  <version>3.8.0</version>
                  <configuration>
-                     <release>11</release>
+                     <release>8</release>
                  </configuration>
                    <dependencies>
                     <dependency>

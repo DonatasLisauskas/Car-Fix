@@ -7,7 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import static carfix.Validation.Regexp.*;
+
 import java.io.IOException;
 
 public class DeleteCustomerController extends DaoMaker {
@@ -28,8 +30,10 @@ public class DeleteCustomerController extends DaoMaker {
                 LOGGER.info("\u001B[33mDELETE Customer: Database is updated!\u001B[0m");
                 LoaderFXML.loadDatabaseUpdatedFXML();
 
-            } else {
+            } else if (customer == null) {
                 LoaderFXML.databaseIsEmpty();
+            } else {
+                LoaderFXML.loadInvalidValueFXML();
             }
         } catch (Exception ex) {
             LOGGER.error(ex);

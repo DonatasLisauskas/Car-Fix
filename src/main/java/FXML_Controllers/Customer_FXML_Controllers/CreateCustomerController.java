@@ -30,14 +30,16 @@ public class CreateCustomerController extends DaoMaker {
 
     @FXML
     public void createCustomerButton() throws IOException {
-
         try {
             String testEmail = email.getText();
             String testPhoneNumber = phoneNumber.getText();
+            String testName = firstName.getText();
+            String testLastName = lastName.getText();
 
-            if (testEmail.matches(EMAIL) && testPhoneNumber.matches(PHONE_NUMBER)) {
+            if (testEmail.matches(EMAIL) && testPhoneNumber.matches(PHONE_NUMBER) &&
+                    testName.matches(NAME_LASTNAME) && testLastName.matches(NAME_LASTNAME)) {
 
-                customerDao.createCustomer(new Customer(firstName.getText(), lastName.getText(), testEmail, testPhoneNumber));
+                customerDao.createCustomer(new Customer(testName, testLastName, testEmail, testPhoneNumber));
 
                 LoaderFXML.loadDatabaseUpdatedFXML();
 

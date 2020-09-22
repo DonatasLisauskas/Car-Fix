@@ -1,11 +1,10 @@
 package carfix.entities;
 
 import lombok.*;
-
 import javax.persistence.*;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Pattern;
 import java.util.List;
-
 import static carfix.Validation.Regexp.*;
 
 @Entity
@@ -14,7 +13,6 @@ import static carfix.Validation.Regexp.*;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Table( name = "customers" )
 public class Customer {
 
@@ -23,10 +21,12 @@ public class Customer {
     @Column(name = "customerId")
     private Long customerId;
 
+    @Pattern(regexp = NAME_LASTNAME, message = INVALID_NAME_LASTNAME)
     @Column(name = "firstName")
     @NonNull
     private String firstName;
 
+    @Pattern(regexp = NAME_LASTNAME, message = INVALID_NAME_LASTNAME)
     @Column(name = "lastName")
     @NonNull
     private String lastName;
@@ -43,4 +43,15 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
     private List<Registration> registrations;
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerId=" + customerId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
+    }
 }

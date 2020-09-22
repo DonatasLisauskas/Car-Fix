@@ -81,13 +81,12 @@ public class ReadCustomerController extends DaoMaker {
                 Scene scene = new Scene(vBox, 500, 500);
                 stage.setScene(scene);
                 stage.show();
+                LOGGER.info("\u001B[33mREAD Customer: Database is READED by Query!\u001B[0m");
             } else {
                 LoaderFXML.wrongQuery();
             }
         } catch (Exception exception) {
             LOGGER.warn(exception);
-        } finally {
-            LOGGER.info("\u001B[33mREAD Customer: Database is READED by Query!\u001B[0m");
         }
     }
 }

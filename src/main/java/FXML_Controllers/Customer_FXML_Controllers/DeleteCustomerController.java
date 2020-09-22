@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
+import static carfix.Validation.Regexp.*;
 import java.io.IOException;
 
 public class DeleteCustomerController extends DaoMaker {
@@ -21,17 +21,18 @@ public class DeleteCustomerController extends DaoMaker {
     private void deleteButton() throws IOException {
         try {
             Customer customer = customerDao.getCustomerById(Long.valueOf(number.getText()));
-            customerDao.deleteCustomer(customer);
-        } catch (RuntimeException ex) {
-            LOGGER.error(ex);
-        }// delete is completed successful, but throw Runtime exception JavaFX.
-        finally {
-            LOGGER.info("\u001B[33mDELETE Customer: Database is updated!\u001B[0m");
-            try {
+            String testID = number.getText();
+
+            if (testID.matches(ID) && customer != null) {
+                customerDao.deleteCustomer(customer);
+                LOGGER.info("\u001B[33mDELETE Customer: Database is updated!\u001B[0m");
                 LoaderFXML.loadDatabaseUpdatedFXML();
-            } catch (IOException ex) {
-                LOGGER.error(ex);
+
+            } else {
+                LoaderFXML.databaseIsEmpty();
             }
+        } catch (Exception ex) {
+            LOGGER.error(ex);
         }
     }
 }

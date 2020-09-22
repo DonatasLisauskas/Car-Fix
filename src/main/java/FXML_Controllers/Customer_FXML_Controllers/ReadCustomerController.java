@@ -14,7 +14,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import static carfix.Validation.Regexp.*;
-import static carfix.Validation.Regexp.NAME_LASTNAME;
 
 public class ReadCustomerController extends DaoMaker {
 

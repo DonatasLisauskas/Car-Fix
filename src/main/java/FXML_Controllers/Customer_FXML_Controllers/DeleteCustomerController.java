@@ -25,7 +25,7 @@ public class DeleteCustomerController extends DaoMaker {
             Customer customer = customerDao.getCustomerById(Long.valueOf(number.getText()));
             String testID = number.getText();
 
-            if (testID.matches(ID) && customer != null) {
+            if (testID.matches(ID_OR_NUMBER) && customer != null) {
                 customerDao.deleteCustomer(customer);
                 LOGGER.info("\u001B[33mDELETE Customer: Database is updated!\u001B[0m");
                 LoaderFXML.loadDatabaseUpdatedFXML();

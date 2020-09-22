@@ -3,7 +3,11 @@ package carfix.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.List;
+
+import static carfix.Validation.Regexp.INVALID_SERIES_NAME;
+import static carfix.Validation.Regexp.SERIES_NAME;
 
 @Entity
 @Getter
@@ -11,7 +15,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Table( name = "cars" )
 public class Car {
 
@@ -20,6 +23,7 @@ public class Car {
     @Column(name = "carId")
     private Long carId;
 
+    @Pattern(regexp = SERIES_NAME, message = INVALID_SERIES_NAME)
     @Column(name = "seriesName")
     @NonNull
     private String seriesName;

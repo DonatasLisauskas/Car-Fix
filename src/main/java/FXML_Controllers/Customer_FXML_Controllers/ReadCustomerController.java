@@ -33,7 +33,7 @@ public class ReadCustomerController extends DaoMaker {
 
             String testID = Id.getText();
 
-            if (testID.matches(ID) && customer != null) {
+            if (testID.matches(ID_OR_NUMBER) && customer != null) {
 
                 ListView listView = new ListView();
                 ObservableList<Customer> items = listView.getItems();

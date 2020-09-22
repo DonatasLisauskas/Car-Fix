@@ -2,6 +2,7 @@ package carfix.entities;
 
 import lombok.*;
 import javax.persistence.*;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Pattern;
 import java.util.List;
 import static carfix.Validation.Regexp.*;
@@ -12,7 +13,6 @@ import static carfix.Validation.Regexp.*;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Table( name = "customers" )
 public class Customer {
 
@@ -43,4 +43,15 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
     private List<Registration> registrations;
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerId=" + customerId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
+    }
 }

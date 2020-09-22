@@ -60,4 +60,16 @@ public class LoaderFXML {
             LOGGER.error(ex);
         }
     }
+
+    public static void wrongQuery() throws IOException {
+        try {
+            FXMLLoader fxmlLoader1 = new FXMLLoader(LoaderFXML.class.getResource("/JavaFX/WrongQuery.fxml"));
+            Parent root1 = (Parent) fxmlLoader1.load();
+            Stage stage1 = new Stage();
+            stage1.setScene(new Scene(root1));
+            stage1.show();
+        } catch (IOException ex) {
+            LOGGER.error(ex);
+        }
+    }
 }

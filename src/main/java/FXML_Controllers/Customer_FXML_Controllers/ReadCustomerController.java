@@ -12,6 +12,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.hibernate.hql.internal.ast.QuerySyntaxException;
+
+import java.io.IOException;
 
 import static carfix.Validation.Regexp.*;
 
@@ -62,23 +65,27 @@ public class ReadCustomerController extends DaoMaker {
     private void readByQuery() {
         try {
             String query = String.valueOf((byQuery.getText()));
-
             ListView listView = new ListView();
-
             ObservableList<Customer> items = listView.getItems();
 
-            items.addAll(customerDao.getListOfCustomerByQueries(query));
+            try {
+                items.addAll(customerDao.getListOfCustomerByQueries(query));
+            } catch (Exception exception) {
+                LOGGER.warn(exception);
+            }
+            if (!items.isEmpty()) {
 
-            VBox vBox = new VBox();
-            vBox.getChildren().add(listView);
-
-            Stage stage = new Stage();
-
-            Scene scene = new Scene(vBox, 500, 500);
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception ex) {
-            LOGGER.error(ex);
+                VBox vBox = new VBox();
+                vBox.getChildren().add(listView);
+                Stage stage = new Stage();
+                Scene scene = new Scene(vBox, 500, 500);
+                stage.setScene(scene);
+                stage.show();
+            } else {
+                LoaderFXML.wrongQuery();
+            }
+        } catch (Exception exception) {
+            LOGGER.warn(exception);
         } finally {
             LOGGER.info("\u001B[33mREAD Customer: Database is READED by Query!\u001B[0m");
         }

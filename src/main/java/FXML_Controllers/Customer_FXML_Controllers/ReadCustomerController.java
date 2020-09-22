@@ -29,15 +29,14 @@ public class ReadCustomerController extends DaoMaker {
     @FXML
     private void readByID() {
         try {
-            String testID = Id.getId();
+            Long customerId = Long.valueOf(String.valueOf(Id.getText()));
+            Customer customer = customerDao.getCustomerById(customerId);
 
-            if (testID.matches(ID)) {
-                Long customerId = Long.valueOf(String.valueOf(Id.getText()));
+            String testID = Id.getText();
+
+            if (testID.matches(ID) && customer != null) {
 
                 ListView listView = new ListView();
-
-                Customer customer = customerDao.getCustomerById(customerId);
-
                 ObservableList<Customer> items = listView.getItems();
                 items.add(customer);
 
@@ -47,12 +46,11 @@ public class ReadCustomerController extends DaoMaker {
                 Scene scene = new Scene(vBox, 500, 500);
                 stage.setScene(scene);
                 stage.show();
-
                 LOGGER.info("\u001B[33mREAD Customer: Database is READED by ID!\u001B[0m");
+            } else if (customer == null) {
+                LoaderFXML.databaseIsEmpty();
             } else {
-
                 LoaderFXML.loadInvalidValueFXML();
-
                 LOGGER.info("\u001B[33mREAD Customer: Database IS NOT READED by ID!\u001B[0m");
             }
         } catch (Exception exception) {

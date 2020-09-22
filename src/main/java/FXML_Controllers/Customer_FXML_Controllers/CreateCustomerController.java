@@ -8,6 +8,8 @@ import javafx.scene.control.TextField;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import static carfix.Validation.Regexp.*;
+
 import java.io.IOException;
 
 public class CreateCustomerController extends DaoMaker {
@@ -28,13 +30,26 @@ public class CreateCustomerController extends DaoMaker {
 
     @FXML
     public void createCustomerButton() throws IOException {
-        customerDao.createCustomer(new Customer(firstName.getText(), lastName.getText(), email.getText(), phoneNumber.getText()));
+
         try {
-            LoaderFXML.loadDatabaseUpdatedFXML();
-        } catch (IOException ex) {
-            LOGGER.error(ex);
-        } finally {
-            LOGGER.info("\u001B[33mCREATE Customer: Database is updated!\u001B[0m");
+            String testEmail = email.getText();
+            String testPhoneNumber = phoneNumber.getText();
+
+            if (testEmail.matches(EMAIL) && testPhoneNumber.matches(PHONE_NUMBER)) {
+
+                customerDao.createCustomer(new Customer(firstName.getText(), lastName.getText(), testEmail, testPhoneNumber));
+
+                LoaderFXML.loadDatabaseUpdatedFXML();
+
+                LOGGER.info("\u001B[33mCREATE Customer: Database is updated!\u001B[0m");
+            } else {
+
+                LoaderFXML.loadInvalidValueFXML();
+
+                LOGGER.info("\u001B[35mCREATE Customer: Database IS NOT updated!\u001B[0m");
+            }
+        } catch (IOException ioException) {
+            LOGGER.error(ioException);
         }
     }
 }

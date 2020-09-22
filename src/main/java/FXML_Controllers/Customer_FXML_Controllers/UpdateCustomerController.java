@@ -2,7 +2,6 @@ package FXML_Controllers.Customer_FXML_Controllers;
 
 import Facade_Pattern.DaoMaker;
 import Visitor_Pattern.LoaderFXML;
-import carfix.dao.CustomerDao;
 import carfix.entities.Customer;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -44,7 +43,7 @@ public class UpdateCustomerController extends DaoMaker {
 
             Customer customer = customerDao.getCustomerById(Long.valueOf(id.getText()));
 
-            if (testID.matches(ID) && !(testID.isEmpty()) && customer != null) {
+            if (testID.matches(ID_OR_NUMBER) && !(testID.isEmpty()) && customer != null) {
                 if (!(updateFirstName == null)) {
                     if (updateFirstName.matches(NAME_LASTNAME)) {
                         customer.setFirstName(firstName.getText());

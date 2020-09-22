@@ -1,11 +1,9 @@
 package carfix.entities;
 
 import lombok.*;
-
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import java.util.List;
-
 import static carfix.Validation.Regexp.*;
 
 @Entity

@@ -12,10 +12,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.hibernate.hql.internal.ast.QuerySyntaxException;
-
-import java.io.IOException;
-
 import static carfix.Validation.Regexp.*;
 
 public class ReadCustomerController extends DaoMaker {
@@ -52,8 +48,6 @@ public class ReadCustomerController extends DaoMaker {
                 LOGGER.info("\u001B[33mREAD Customer: Database is READED by ID!\u001B[0m");
             } else if (customer == null) {
                 LoaderFXML.databaseIsEmpty();
-            } else {
-                LoaderFXML.loadInvalidValueFXML();
                 LOGGER.info("\u001B[33mREAD Customer: Database IS NOT READED by ID!\u001B[0m");
             }
         } catch (Exception exception) {

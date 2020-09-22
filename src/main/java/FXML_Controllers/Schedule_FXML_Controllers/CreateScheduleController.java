@@ -3,12 +3,14 @@ package FXML_Controllers.Schedule_FXML_Controllers;
 import Facade_Pattern.DaoMaker;
 import Visitor_Pattern.LoaderFXML;
 import carfix.entities.*;
+import com.mysql.cj.Session;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
+import java.sql.Date;
 
 public class CreateScheduleController extends DaoMaker {
 
@@ -31,7 +33,13 @@ public class CreateScheduleController extends DaoMaker {
 
         Registration registration = registrationDao.getRegistrationById(Long.valueOf(registrationId.getText()));
 
-        scheduleDao.createSchedule(new Schedule(date.getText(), time.getText(), Long.valueOf(totalPrice.getText()), registration));
+            String textDate = String.valueOf(date.getText());
+            Date dateSQL = Date.valueOf(textDate);
+
+            String textTime = String.valueOf(time.getText());
+
+            scheduleDao.createSchedule(new Schedule(dateSQL, textTime, Long.valueOf(totalPrice.getText()), registration));
+
         try {
             LoaderFXML.loadDatabaseUpdatedFXML();
         } catch (IOException ex) {

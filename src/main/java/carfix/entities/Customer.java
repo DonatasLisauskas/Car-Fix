@@ -1,14 +1,20 @@
 package carfix.entities;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.List;
+
+import static carfix.Validation.Regexp.*;
 
 @Entity
 @Getter
 @Setter
+@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Table( name = "customers" )
 public class Customer {
 
@@ -18,46 +24,23 @@ public class Customer {
     private Long customerId;
 
     @Column(name = "firstName")
+    @NonNull
     private String firstName;
 
     @Column(name = "lastName")
+    @NonNull
     private String lastName;
 
+    @Pattern(regexp= EMAIL, message = INVALID_EMAIL)
     @Column(name = "email")
+    @NonNull
     private String email;
 
+    @Pattern(regexp = PHONE_NUMBER, message = INVALID_PHONE_NUMBER)
     @Column(name = "phoneNumber")
-    private Long phoneNumber;
+    @NonNull
+    private String phoneNumber;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
     private List<Registration> registrations;
-
-    public Customer() {
-    }
-
-    public Customer(String firstName, String lastName, String email, Long phoneNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-    }
-
-    public Customer(String firstName, String lastName, String email, Long phoneNumber, List<Registration> registrations) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.registrations = registrations;
-    }
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "customerId=" + customerId +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                '}';
-    }
 }

@@ -1,7 +1,6 @@
 package carfix.entities;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,7 +8,11 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Table( name = "details" )
+@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Table(name = "details")
 public class Detail {
 
     @Id
@@ -18,42 +21,19 @@ public class Detail {
     private Long detailId;
 
     @Column(name = "detailName")
+    @NonNull
     private String detailName;
 
     @Column(name = "price")
+    @NonNull
     private Long price;
 
     @ManyToOne
     @JoinColumn(name = "carId")
+    @NonNull
     private Car car;
 
-    @OneToMany(mappedBy = "detail")
+    @OneToMany(mappedBy = "detail", fetch = FetchType.LAZY)
     private List<Registration> registrations;
 
-    public Detail() {
-    }
-
-    public Detail(String detailName, Long price, Car car) {
-        this.detailName = detailName;
-        this.price = price;
-        this.car = car;
-    }
-
-    public Detail(Long detailId, String detailName, Long price, Car car, List<Registration> registrations) {
-        this.detailId = detailId;
-        this.detailName = detailName;
-        this.price = price;
-        this.car = car;
-        this.registrations = registrations;
-    }
-
-    @Override
-    public String toString() {
-        return "Detail{" +
-                "detailId=" + detailId +
-                ", detailName='" + detailName + '\'' +
-                ", price=" + price +
-                ", car=" + car +
-                '}';
-    }
 }

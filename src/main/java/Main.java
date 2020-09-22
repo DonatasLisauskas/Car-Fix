@@ -25,7 +25,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("JavaFX/SelectDB.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/JavaFX/SelectDB.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(root);
             stage.setScene(scene);

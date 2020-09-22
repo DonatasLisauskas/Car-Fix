@@ -1,13 +1,17 @@
 package carfix.entities;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Getter
 @Setter
+@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Table( name = "schedules" )
 public class Schedule {
 
@@ -17,40 +21,20 @@ public class Schedule {
     private Long scheduleId;
 
     @Column(name = "date")
-    private String date;
+    @NonNull
+    private Date date; //TODO: write a JUnit test for what kind of writing format of SQL date is.
 
     @Column(name = "time")
-    private String time;
+    @NonNull
+    private String time;  //TODO: write a JUnit test for what kind of writing format of SQL time is.
 
     @Column(name = "totalPrice")
+    @NonNull
     private Long totalPrice;
 
     @ManyToOne
     @JoinColumn(name = "registrationId")
+    @NonNull
     private Registration registration;
 
-    public Schedule() {
-    }
-    public Schedule(String date, String time, Long totalPrice) {
-        this.date = date;
-        this.time = time;
-        this.totalPrice = totalPrice;
-    }
-
-    public Schedule(String date, String time, Long totalPrice, Registration registration) {
-        this.date = date;
-        this.time = time;
-        this.totalPrice = totalPrice;
-        this.registration = registration;
-    }
-
-    @Override
-    public String toString() {
-        return "Schedule{" +
-                "date='" + date + '\'' +
-                ", time='" + time + '\'' +
-                ", totalPrice=" + totalPrice +
-                ", registration=" + registration +
-                '}';
-    }
 }

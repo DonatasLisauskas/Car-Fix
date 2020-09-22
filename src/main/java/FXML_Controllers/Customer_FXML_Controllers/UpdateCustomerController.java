@@ -92,7 +92,7 @@ public class UpdateCustomerController extends DaoMaker {
     public void updatePhoneNumber() throws IOException {
         try {
             Customer customer = customerDao.getCustomerById(Long.valueOf(id.getText()));
-            customer.setPhoneNumber(Long.valueOf(phoneNumber.getText()));
+            customer.setPhoneNumber(phoneNumber.getText());
             customerDao.updateCustomer(customer);
         } catch (RuntimeException ex) {
             LOGGER.error(ex);

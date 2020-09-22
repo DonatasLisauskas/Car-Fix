@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
+import java.sql.Date;
 
 public class UpdateScheduleController extends DaoMaker {
 
@@ -33,7 +34,9 @@ public class UpdateScheduleController extends DaoMaker {
     public void updateDate() throws IOException {
         try {
             Schedule schedule = scheduleDao.getScheduleById(Long.valueOf(scheduleID.getText()));
-            schedule.setDate(date.getText());
+            String textDate = String.valueOf(date.getText());
+            Date dateSQL = Date.valueOf(textDate);
+            schedule.setDate(dateSQL);
             scheduleDao.updateSchedule(schedule);
         } catch (RuntimeException ex) {
             LOGGER.error(ex);
@@ -52,7 +55,8 @@ public class UpdateScheduleController extends DaoMaker {
     public void updateTime() throws IOException {
         try {
             Schedule schedule = scheduleDao.getScheduleById(Long.valueOf(scheduleID.getText()));
-            schedule.setTime(time.getText());
+            String textTime = String.valueOf(time.getText());
+            schedule.setTime(textTime);
             scheduleDao.updateSchedule(schedule);
         } catch (RuntimeException ex) {
             LOGGER.error(ex);

@@ -39,7 +39,7 @@ public class CreateCustomerController extends DaoMaker {
             if (testEmail.matches(EMAIL) && testPhoneNumber.matches(PHONE_NUMBER) &&
                     testName.matches(NAME_LASTNAME) && testLastName.matches(NAME_LASTNAME)) {
 
-                customerDao.createCustomer(new Customer(firstName.getText(), lastName.getText(), testEmail, testPhoneNumber));
+                customerDao.createCustomer(new Customer(testName, testLastName, testEmail, testPhoneNumber));
 
                 LoaderFXML.loadDatabaseUpdatedFXML();
 

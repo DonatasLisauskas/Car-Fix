@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.sql.Time;
 
 @Entity
 @Getter
@@ -27,7 +26,7 @@ public class Schedule {
 
     @Column(name = "time")
     @NonNull
-    private Time time;  //TODO: write a JUnit test for what kind of writing format of SQL time is.
+    private String time;  //TODO: write a JUnit test for what kind of writing format of SQL time is.
 
     @Column(name = "totalPrice")
     @NonNull

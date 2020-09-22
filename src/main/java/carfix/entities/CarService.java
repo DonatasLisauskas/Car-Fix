@@ -31,7 +31,7 @@ public class CarService {
 
     @Column(name = "workTime")
     @NonNull
-    private Date workTime;
+    private String workTime;
 
     @Column(name = "employeesNum")
     @NonNull

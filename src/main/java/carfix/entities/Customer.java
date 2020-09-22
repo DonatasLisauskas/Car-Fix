@@ -23,10 +23,12 @@ public class Customer {
     @Column(name = "customerId")
     private Long customerId;
 
+    @Pattern(regexp = NAME_LASTNAME, message = INVALID_NAME_LASTNAME)
     @Column(name = "firstName")
     @NonNull
     private String firstName;
 
+    @Pattern(regexp = NAME_LASTNAME, message = INVALID_NAME_LASTNAME)
     @Column(name = "lastName")
     @NonNull
     private String lastName;

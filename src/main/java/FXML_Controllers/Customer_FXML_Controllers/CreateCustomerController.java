@@ -28,7 +28,7 @@ public class CreateCustomerController extends DaoMaker {
 
     @FXML
     public void createCustomerButton() throws IOException {
-        customerDao.createCustomer(new Customer(firstName.getText(), lastName.getText(), email.getText(), Long.valueOf(phoneNumber.getText())));
+        customerDao.createCustomer(new Customer(firstName.getText(), lastName.getText(), email.getText(), phoneNumber.getText()));
         try {
             LoaderFXML.loadDatabaseUpdatedFXML();
         } catch (IOException ex) {

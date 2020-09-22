@@ -3,7 +3,10 @@ package carfix.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.List;
+
+import static carfix.Validation.Regexp.*;
 
 @Entity
 @Getter
@@ -28,15 +31,16 @@ public class Customer {
     @NonNull
     private String lastName;
 
+    @Pattern(regexp= EMAIL, message = INVALID_EMAIL)
     @Column(name = "email")
     @NonNull
     private String email;
 
+    @Pattern(regexp = PHONE_NUMBER, message = INVALID_PHONE_NUMBER)
     @Column(name = "phoneNumber")
     @NonNull
-    private Long phoneNumber;
+    private String phoneNumber;
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
     private List<Registration> registrations;
-
 }

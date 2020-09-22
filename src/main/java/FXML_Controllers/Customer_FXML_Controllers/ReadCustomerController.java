@@ -1,6 +1,7 @@
 package FXML_Controllers.Customer_FXML_Controllers;
 
 import Facade_Pattern.DaoMaker;
+import Visitor_Pattern.LoaderFXML;
 import carfix.entities.Customer;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,6 +12,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import static carfix.Validation.Regexp.*;
+import static carfix.Validation.Regexp.NAME_LASTNAME;
 
 public class ReadCustomerController extends DaoMaker {
 
@@ -26,25 +30,34 @@ public class ReadCustomerController extends DaoMaker {
     @FXML
     private void readByID() {
         try {
-            Long customerId = Long.valueOf(String.valueOf(Id.getText()));
+            String testID = Id.getId();
 
-            ListView listView = new ListView();
+            if (testID.matches(ID)) {
+                Long customerId = Long.valueOf(String.valueOf(Id.getText()));
 
-            Customer customer = customerDao.getCustomerById(customerId);
+                ListView listView = new ListView();
 
-            ObservableList<Customer> items = listView.getItems();
-            items.add(customer);
+                Customer customer = customerDao.getCustomerById(customerId);
 
-            VBox vBox = new VBox();
-            vBox.getChildren().add(listView);
-            Stage stage = new Stage();
-            Scene scene = new Scene(vBox, 500, 500);
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception ex) {
-            LOGGER.error(ex);
-        } finally {
-            LOGGER.info("\u001B[33mREAD Customer: Database is READED by ID!\u001B[0m");
+                ObservableList<Customer> items = listView.getItems();
+                items.add(customer);
+
+                VBox vBox = new VBox();
+                vBox.getChildren().add(listView);
+                Stage stage = new Stage();
+                Scene scene = new Scene(vBox, 500, 500);
+                stage.setScene(scene);
+                stage.show();
+
+                LOGGER.info("\u001B[33mREAD Customer: Database is READED by ID!\u001B[0m");
+            } else {
+
+                LoaderFXML.loadInvalidValueFXML();
+
+                LOGGER.info("\u001B[33mREAD Customer: Database IS NOT READED by ID!\u001B[0m");
+            }
+        } catch (Exception exception) {
+            LOGGER.error(exception);
         }
     }
 
